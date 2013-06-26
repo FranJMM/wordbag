@@ -1,0 +1,10 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/AddedTranslation">
+    <TextView
+        android:id="@+id/addedTranslationText"
+        style="@style/AddedTranslationText" />
+    <ImageButton
+        android:id="@+id/removeTranslationButton"
+        style="@style/AddedTranslationRemoveButton"/>
+</LinearLayout>

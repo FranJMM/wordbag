@@ -1,0 +1,9 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/Main">
+	<include 
+	    layout="@layout/header"/>
+	<LinearLayout
+	    android:id="@+id/fragmentContainer"
+	    style="@style/MainFragmentContainer"/>
+</LinearLayout>

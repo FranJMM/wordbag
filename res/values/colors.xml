@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="redDark">#8d2120</color>
+    <color name="redDarkLighter">#c19696</color>
+    <color name="redDarkDarker">#591615</color>
+  
+    <color name="gray_1">#333333</color><!-- Brightness: 31% -->
+    <color name="gray_2">#cccccc</color><!-- Brightness: 80% -->
+    <color name="gray_3">#e5e5e5</color><!-- Brightness: 90% -->
+    <color name="gray_4">#eeeeee</color><!-- Brightness: 93% -->
+    
+</resources>
+<!-- beige #dab68f  -->
+<!-- beige lighter #ffd5a8  -->
+<!-- beige darker #b39576  -->

@@ -1,0 +1,15 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/RowWord" >
+    <LinearLayout
+        android:id="@+id/word"
+        style="@style/RowWordTextContainer" >
+        <TextView
+            android:id="@+id/wordName"
+            style="@style/RowWordTextLeft" />
+        <TextView
+            android:id="@+id/testCount"
+            style="@style/RowWordTextRight" />
+    </LinearLayout>
+    <include layout="@layout/edit_word" />
+    <include layout="@layout/divider_vertical"/>
+</LinearLayout>

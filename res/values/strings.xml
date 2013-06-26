@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WordBag</string>
+    <string name="word">Word</string>
+    <string name="translations">Translations</string>
+    <string name="ADD">ADD</string>
+    <string name="LIST">LIST</string>
+    <string name="TEST">TEST</string>
+    <string name="add">Add</string>
+    <string name="add_to_dictionary">Add to dictionary</string>
+    <string name="select">Select</string>
+    <string name="delete">Delete</string>
+    <string name="activate">On</string>
+    <string name="deactivate">Off</string>
+    <string name="edit">Edit</string>
+    <string name="check">Check translation</string>
+    <string name="toast_test_success">¡You hit!</string>
+    <string name="toast_test_fail">¡You failed!</string>
+    <string name="toast_added_word">%1$s has been added to the dictionary</string>
+    <string name="toast_add_no_word">Word field is empty.</string>
+    <string name="toast_add_no_translations">You have not added any translation. Write one and click on + icon</string>
+    <string name="message_no_dictionaries_list">Start by adding your first dictionary.\n\nFor example: español-inglés, english-german, français-russie.\n\nTake into account that the dictionary will be unidirectional. If you create spanish-english, you will have to create english-spanish if you need it.</string>
+    <string name="message_no_words_list">You do not have any word yet in this dictionary.\n\nGo to ADD section and add some new word to the dictionary\n\nIf you click on the dictionary name row, you will open the edition panel, which allows you to select, create and remove dictionaries.</string>
+    <string name="message_first_word_list">You have just added your first word.\n\nIf you add more words, they will be picked at random in TEST section and you will check if you remember at least one translation\n\nIf you want to exclude some word from the TEST, but you want to keep it in the list, you can switch off the word by opening word edition panel (click on the row)</string>
+    <string name="message_no_dictionaries_add">You do not have any dictionary yet.\n\nGo to LIST and add some new dictionary, then you will be able to add words to it.</string>
+	<string name="message_no_dictionaries_test">You do not have any dictionary yet.\n\nGo to LIST and add some new dictionary, then you will be able to add words to it.</string>
+	<string name="message_no_words_test">You do not have any word yet in this dictionary.\n\nGo to ADD and add some new word to the dictionary\n\nThen, you will be able to test if you remember its translations.</string>
+</resources>

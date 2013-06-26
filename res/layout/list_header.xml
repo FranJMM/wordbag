@@ -1,0 +1,45 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ListHeader">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headerDictionary"
+    style="@style/ListHeaderDictionary">
+	    <TextView
+	        android:id="@+id/headerDictionaryText"
+	        style="@style/ListHeaderDictionaryText" />
+	</LinearLayout>
+	<include layout="@layout/divider_vertical"/>
+	<LinearLayout
+	    android:id="@+id/dictionariesEdition"
+	    style="@style/ListHeaderDictionariesEdition">
+	    <LinearLayout
+	        android:id="@+id/dictionariesList"
+        	style="@style/ListHeaderDictionariesList">
+	   </LinearLayout>
+       <LinearLayout 
+		    style="@style/ListHeaderAddDictionary">
+		    <EditText
+				android:id="@+id/addDictionaryEditText"
+				style="@style/ElementAddEditText"/>
+		    <ImageButton
+		        android:id="@+id/addButton"
+		        style="@style/ElementAddButton"
+		        android:text="@string/add"/>
+		</LinearLayout>
+	</LinearLayout>
+   <View 
+       android:id="@+id/header_divider"
+       style="@style/BottomLine"/>
+	<TextView
+        android:id="@+id/noDictionariesMessage"
+        style="@style/Message"
+        android:text="@string/message_no_dictionaries_list" />
+	<TextView
+        android:id="@+id/noWordsMessage"
+        style="@style/Message"
+        android:text="@string/message_no_words_list" />
+	<TextView
+        android:id="@+id/firstWordMessage"
+        style="@style/Message"
+        android:text="@string/message_first_word_list" />
+</LinearLayout>

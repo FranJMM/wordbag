@@ -1,0 +1,34 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment"
+    style="@style/Fragment">
+    <LinearLayout
+        android:id="@+id/testLayout"
+		style="@style/TestLayout">
+	    <TextView
+	        android:id="@+id/question"
+	        style="@style/TestQuestion"/>
+	   	<LinearLayout
+ 			style="@style/TestAnswerContainer">
+		    <EditText
+		        android:id="@+id/answer"
+		        style="@style/TestAnswer">
+	    	</EditText>
+	    </LinearLayout>
+	    <LinearLayout
+ 			style="@style/TestCheckButtonContainer">
+		    <Button
+		        android:id="@+id/check"
+		        android:text="@string/check"
+		        style="@style/TestCheckButton"/>
+	    </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/testNoDictionariesMessage"
+        style="@style/Message"
+        android:text="@string/message_no_dictionaries_test" />
+    <TextView
+        android:id="@+id/testNoWordsMessage"
+        style="@style/Message"
+        android:text="@string/message_no_words_test" />
+</LinearLayout>

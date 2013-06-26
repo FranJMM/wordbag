@@ -1,0 +1,508 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <style name="AppBaseTheme" parent="@android:style/Theme.NoTitleBar">
+    </style>
+    
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:fontFamily">assets/fonts/Bolide-Regular.ttf</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    
+    <style name="Fragment" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    
+    <style name="PaddedElement" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+    
+    <style name="EditTextAppTheme" parent="android:Widget.EditText">
+	    <item name="android:background">@drawable/edit_text_holo_light</item>
+	    <item name="android:textColor">@color/black</item>
+	</style>
+	
+	<style name="ButtonAppTheme" parent="android:Widget.Button">
+        <item name="android:background">@drawable/button_default_holo_light</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:minWidth">64dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ImageButtonAppTheme" parent="android:Widget.ImageButton">
+        <item name="android:background">@drawable/button_default_holo_light</item>
+    </style>
+
+    <style name="AppButton" parent="ButtonAppTheme">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">@color/white</item>
+	    <item name="android:textSize">18sp</item>
+	    <item name="android:gravity">center</item>
+	</style>	
+	
+    <style name="EditButton" parent="AppButton">
+	   	<item name="android:layout_width">0dp</item>
+	   	<item name="android:layout_weight">1</item>
+	    <item name="android:layout_height">wrap_content</item>
+	</style>
+	
+    <style name="EditButtonDivider" parent="AppTheme">
+	   	<item name="android:layout_width">20dp</item>
+	    <item name="android:layout_height">match_parent</item>
+	</style>
+	
+    <style name="ElementAddEditText" parent="EditTextAppTheme">
+	   	<item name="android:layout_width">0dp</item>
+	   	<item name="android:layout_height">wrap_content</item>
+	   	<item name="android:layout_weight">0.75</item>
+	   	<item name="android:textSize">18sp</item>
+	   	<item name="android:singleLine">true</item>
+	</style>
+	
+	<style name="ElementAddButton">
+	   	<item name="android:layout_width">0dp</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:layout_weight">0.25</item>
+	    <item name="android:src">@drawable/add_button</item>
+	    <item name="android:background">@color/transparent</item>
+	    <item name="android:scaleType">fitEnd</item>
+	</style>
+	
+	<style name="ElementRowText" parent="PaddedElement">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">50dp</item>
+	    <item name="android:gravity">center|left</item>
+	    <item name="android:textSize">18sp</item>
+	    <item name="android:textColor">@color/black</item>
+	</style>
+	
+	<style name="Message" parent="PaddedElement">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:layout_marginTop">20dp</item>
+	    <item name="android:visibility">gone</item>
+	</style>
+	
+	<style name="BottomLine">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">2dp</item>
+	    <item name="android:layout_alignParentBottom">true</item>
+	   	<item name="android:background">@color/redDark</item>
+	</style>
+	
+	<style name="Main">
+	    <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/gray_3</item>
+	</style>
+	
+	<style name="MainFragmentContainer">
+	    <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+	</style>
+    
+    <style name="Header" parent="AppBaseTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@color/redDark</item>
+    </style>
+    
+   	<style name="HeaderApplication" parent="AppBaseTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/redDark</item>
+    </style>
+    
+   	<style name="HeaderApplicationBottomLine" parent="AppBaseTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:background">@color/redDarkDarker</item>
+    </style>
+    
+    <style name="HeaderTitle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center|left</item>
+	    <item name="android:textColor">@color/white</item>
+	    <item name="android:textSize">22sp</item>
+	</style>
+	
+    <style name="HeaderIcon" parent="PaddedElement">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:gravity">center</item>
+	    <item name="android:scaleType">center</item>
+	</style>
+	
+   	<style name="HeaderDictionaryPreference" parent="PaddedElement">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center|left</item>
+	    <item name="android:textColor">@color/white</item>
+	    <item name="android:textSize">24sp</item>
+	</style>
+	
+	<style name="HeaderButton" parent="AppTheme">
+	    <item name="android:layout_width">50dp</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:background">@color/redDark</item>
+	    <item name="android:scaleType">fitXY</item>
+	</style>
+	
+	<style name="NavigationBar">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">50dp</item>
+	    <item name="android:orientation">vertical</item>
+	   	<item name="android:background">@color/gray_3</item>
+	</style>
+	
+	<style name="NavigationBarContainer">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">48dp</item>
+	    <item name="android:orientation">horizontal</item>
+	</style>
+	
+	<style name="NavigationBarSelector">
+	    <item name="android:layout_width">0dp</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:layout_weight">1</item>
+	    <item name="android:orientation">horizontal</item>
+	</style>
+	
+	<style name="NavigationBarSelectorText">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:orientation">horizontal</item>
+	   	<item name="android:textColor">@color/gray_1</item>
+	   	<item name="android:textSize">14dp</item>
+	</style>
+	
+	<style name="NavigationBarSelectorIndicator">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">4dp</item>
+	    <item name="android:layout_alignParentBottom">true</item>
+	   	<item name="android:background">@color/redDark</item>
+	</style>	
+
+	<style name="HeaderDictionary" parent="PaddedElement">
+	    <item name="android:layout_height">50dp</item>
+	</style>
+	
+	<style name="HeaderDictionaryText">
+	    <item name="android:layout_width">0dp</item>
+	    <item name="android:layout_weight">1</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:gravity">center|left</item>
+	   	<item name="android:textColor">@color/black</item>
+	</style>
+	
+	<style name="HeaderDictionaryButton">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">match_parent</item>
+	</style>
+	
+	<style name="AddScrollView" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    
+	<style name="AddLayout" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">left</item>
+    </style>
+    
+	<style name="AddLayoutForm" parent="PaddedElement">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">left</item>
+    </style>
+    
+	<style name="AddSection">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+	
+	<style name="AddSectionTitle" parent="AppTheme">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">@color/black</item>
+	    <item name="android:textStyle">bold</item>
+	    <item name="android:textSize">22sp</item>
+	</style>
+	
+	<style name="AddWordEditText" parent="EditTextAppTheme">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:textSize">18sp</item>
+	    <item name="android:singleLine">true</item>
+	</style>
+	
+	<style name="AddTranslationsList" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	</style>
+	
+	<style name="AddTranslation" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:layout_marginTop">20dp</item>
+	    <item name="android:orientation">horizontal</item>
+	    <item name="android:gravity">center</item>
+	</style>
+	
+	<style name="AddedTranslation" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
+    
+    <style name="AddedTranslationText" parent="AppTheme">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.75</item>
+        <item name="android:gravity">center|left</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+    <style name="AddedTranslationRemoveButton">
+	   	<item name="android:layout_width">0dp</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:layout_weight">0.25</item>
+	    <item name="android:src">@drawable/remove_button</item>
+	    <item name="android:background">@color/transparent</item>
+	    <item name="android:scaleType">fitEnd</item>
+    </style>
+    
+     <style name="AddToDictionaryButton" parent="AppButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+    </style>
+	
+	<style name="List" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:cacheColorHint">@color/transparent</item>
+	    <item name="android:drawSelectorOnTop">false</item>
+	    <item name="android:focusable">false</item>
+	    <item name="android:divider">@color/transparent</item>
+	</style>
+	
+	<style name="ListHeader" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	</style>
+	
+	<style name="ListHeaderDictionary" parent="PaddedElement">
+	    <item name="android:layout_height">50dp</item>
+	    <item name="android:background">@drawable/row_background</item>
+	</style>
+	
+	<style name="ListHeaderDictionaryText" parent="AppTheme">
+	    <item name="android:layout_width">0dp</item>
+	    <item name="android:layout_weight">1</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:gravity">center|left</item>
+	   	<item name="android:textColor">@color/black</item>
+	   	<item name="android:textSize">18sp</item>
+	</style>
+	
+	<style name="ListHeaderDictionariesEdition" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	    <item name="android:visibility">gone</item>
+	</style>
+	
+	<style name="ListHeaderDictionariesList" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	</style>
+	
+	<style name="ListHeaderAddDictionary" parent="PaddedElement">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">horizontal</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+	</style>
+	
+	<style name="RowDictionary" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	</style>
+	
+	<style name="EditDictionary" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:paddingBottom">20dp</item>
+	    <item name="android:orientation">vertical</item>
+	    <item name="android:visibility">gone</item>
+	</style>
+	
+	<style name="EditDictionaryButtonContainer" parent="PaddedElement">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">horizontal</item>
+	</style>
+	
+	<style name="EditWord" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	    <item name="android:visibility">gone</item>
+	</style>
+	
+	<style name="EditWordButtonContainer" parent="PaddedElement">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">horizontal</item>
+	</style>
+	
+	<style name="EditWordTranslations" parent="PaddedElement">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:layout_marginTop">20dp</item>
+	    <item name="android:layout_marginBottom">20dp</item>
+	    <item name="android:textColor">@color/black</item>
+	</style>
+	
+	<style name="RowWord" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	</style>
+	
+	<style name="RowWordTextContainer" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">horizontal</item>
+	    <item name="android:background">@drawable/row_background</item>
+	</style>
+	
+	<style name="RowWordTextLeft" parent="ElementRowText">
+	   	<item name="android:layout_width">0dp</item>
+	    <item name="android:layout_weight">0.75</item>
+	</style>
+	
+	<style name="RowWordTextRight" parent="ElementRowText">
+	   	<item name="android:layout_width">0dp</item>
+	    <item name="android:layout_weight">0.25</item>
+	    <item name="android:gravity">center|right</item>
+	</style>
+	
+	<style name="RowTranslation" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">wrap_content</item>
+	</style>
+	
+	<style name="TestLayout" parent="PaddedElement">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">match_parent</item>
+	   	<item name="android:orientation">vertical</item>
+	   	<item name="android:gravity">center_horizontal</item>
+	</style>
+	
+	<style name="TestQuestion" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">0dp</item>
+	   	<item name="android:layout_weight">0.3</item>
+	   	<item name="android:gravity">center</item>
+	   	<item name="android:textSize">30sp</item>
+	   	<item name="android:typeface">serif</item>
+	   	<item name="android:textStyle">bold</item>
+	   	<item name="android:textColor">@color/black</item>
+	</style>
+	
+	<style name="TestAnswerContainer" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">0dp</item>
+	   	<item name="android:layout_weight">0.4</item>
+	   	<item name="android:gravity">center</item>
+	</style>
+	
+	<style name="TestAnswer" parent="EditTextAppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">wrap_content</item>
+	   	<item name="android:gravity">center</item>
+	   	<item name="android:textSize">30sp</item>
+	   	<item name="android:autoLink">none</item>
+	   	<item name="android:singleLine">true</item>
+	</style>
+	
+	<style name="TestCheckButtonContainer" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">0dp</item>
+	   	<item name="android:layout_weight">0.3</item>
+	   	<item name="android:gravity">center</item>
+	</style>
+	
+	<style name="TestCheckButton" parent="AppButton">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+	
+	<style name="DividerHorizontal" parent="AppTheme">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:orientation">horizontal</item>
+	</style>
+	
+	<style name="DividerLineHorizontal" parent="AppTheme">
+	    <item name="android:layout_width">1px</item>
+	    <item name="android:layout_height">match_parent</item>
+	</style>
+	
+	<style name="DividerHorizontalLeft" parent="DividerLineHorizontal">
+	    <item name="android:background">@color/redDarkDarker</item>
+	</style>
+	
+	<style name="DividerHorizontalRight" parent="DividerLineHorizontal">
+	    <item name="android:background">@color/redDarkLighter</item>
+	</style>
+	
+	<style name="DividerVertical" parent="AppTheme">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	</style>
+	
+	<style name="DividerLineVertical" parent="AppTheme">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">1px</item>
+	</style>
+	
+	<style name="DividerVerticalUpper" parent="DividerLineVertical">
+	    <item name="android:background">@color/gray_2</item>
+	</style>
+	
+	<style name="DividerVerticalLower" parent="DividerLineVertical">
+	    <item name="android:background">@color/white</item>
+	</style>
+
+</resources>

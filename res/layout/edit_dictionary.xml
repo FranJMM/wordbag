@@ -1,0 +1,18 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dictionaryEdition"
+    style="@style/EditDictionary">
+    <LinearLayout
+        style="@style/EditDictionaryButtonContainer">
+	  	<TextView 
+	  	    android:id="@+id/selectDictionary"
+	  	    android:text="@string/select"
+	    	style="@style/EditButton"/>
+	  	<View
+	  	    style="@style/EditButtonDivider"/>
+	  	<TextView 
+	  	    android:id="@+id/deleteDictionary"
+	  	    android:text="@string/delete"
+	    	style="@style/EditButton"/>
+  	</LinearLayout>
+</LinearLayout>

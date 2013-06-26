@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Header">
+    <LinearLayout
+        style="@style/HeaderApplication">
+        <ImageView 
+            android:src="@drawable/header_icon"
+            style="@style/HeaderIcon"/>
+	    <TextView
+	        android:id="@+id/header_title"
+	        android:text="@string/app_name"
+	        style="@style/HeaderTitle"/>
+    </LinearLayout>
+    <View
+        style="@style/HeaderApplicationBottomLine" />
+    <include layout="@layout/navigation_bar" />
+</LinearLayout>

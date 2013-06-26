@@ -1,0 +1,10 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+	style="@style/DividerVertical">
+    <LinearLayout 
+	    style="@style/DividerVerticalUpper">
+	</LinearLayout>
+	<LinearLayout 
+	    style="@style/DividerVerticalLower">
+	</LinearLayout>
+</LinearLayout>
