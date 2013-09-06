@@ -18,6 +18,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -59,11 +60,12 @@ public class ListFragment extends BaseFragment {
 
 	public void initLayout(){
 		list = (ListView) find(R.id.list);
-		list.addHeaderView(getActivity().getLayoutInflater().inflate(R.layout.list_header, null));
+		if(list.getAdapter() == null) {
+			list.addHeaderView(getActivity().getLayoutInflater().inflate(R.layout.list_header, null));
+		}
 		adapter = new ListAdapter(getActivity().getBaseContext(), 0, words);
 		list.setAdapter(adapter); 
 		ImageButton add = (ImageButton)find(R.id.dictionariesEdition).findViewById(R.id.addButton);
-		//Util.setDefaultFont(add, getActivity());
 		add.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -79,6 +81,7 @@ public class ListFragment extends BaseFragment {
 			find(R.id.noWordsMessage).setVisibility(View.GONE);
 			find(R.id.firstWordMessage).setVisibility(View.GONE);
 			find(R.id.headerDictionary).setVisibility(View.VISIBLE);
+			((Main)getActivity()).updateDictionaryPreference();
 			TextView headerDictionaryText = (TextView)list.findViewById(R.id.headerDictionaryText);
 			headerDictionaryText.setText(db.getDictionaryNameById(dictionaryPreference));
 			Util.setDefaultFont(headerDictionaryText, getActivity());
@@ -224,6 +227,7 @@ public class ListFragment extends BaseFragment {
 	
 	private void deleteDictionary(View v){
 		db.deleteDictionary((Integer)v.getTag());
+		setLayout();
 	}
 	
 	private void editWord(View v){
