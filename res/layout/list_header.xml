@@ -20,7 +20,7 @@
 		    style="@style/ListHeaderAddDictionary">
 		    <EditText
 				android:id="@+id/addDictionaryEditText"
-				style="@style/ElementAddEditText"/>
+				style="@style/ListHeaderAddDictioanaryEdit"/>
 		    <ImageButton
 		        android:id="@+id/addButton"
 		        style="@style/ElementAddButton"

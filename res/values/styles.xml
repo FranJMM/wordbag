@@ -58,7 +58,7 @@
     <style name="ElementAddEditText" parent="EditTextAppTheme">
 	   	<item name="android:layout_width">0dp</item>
 	   	<item name="android:layout_height">wrap_content</item>
-	   	<item name="android:layout_weight">0.75</item>
+		<item name="android:layout_weight">0.80</item>
 	   	<item name="android:textSize">18sp</item>
 	   	<item name="android:singleLine">true</item>
 	</style>
@@ -66,7 +66,7 @@
 	<style name="ElementAddButton">
 	   	<item name="android:layout_width">0dp</item>
 	    <item name="android:layout_height">wrap_content</item>
-	    <item name="android:layout_weight">0.25</item>
+	    <item name="android:layout_weight">0.15</item>
 	    <item name="android:src">@drawable/add_button</item>
 	    <item name="android:background">@color/transparent</item>
 	    <item name="android:scaleType">fitEnd</item>
@@ -352,6 +352,10 @@
         <item name="android:paddingBottom">20dp</item>
 	</style>
 	
+	<style name="ListHeaderAddDictioanaryEdit" parent="ElementAddEditText">
+		<item name="android:hint">@string/hint_new_dictionary</item>
+	</style>
+
 	<style name="RowDictionary" parent="AppTheme">
 	   	<item name="android:layout_width">match_parent</item>
 	    <item name="android:layout_height">wrap_content</item>

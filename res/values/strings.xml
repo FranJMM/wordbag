@@ -25,4 +25,5 @@
     <string name="message_no_dictionaries_add">You do not have any dictionary yet.\n\nGo to LIST and add some new dictionary, then you will be able to add words to it.</string>
 	<string name="message_no_dictionaries_test">You do not have any dictionary yet.\n\nGo to LIST and add some new dictionary, then you will be able to add words to it.</string>
 	<string name="message_no_words_test">You do not have any word yet in this dictionary.\n\nGo to ADD and add some new word to the dictionary\n\nThen, you will be able to test if you remember its translations.</string>
+	<string name="hint_new_dictionary">Dictionary (spanish-english, e.g.)</string>
 </resources>
