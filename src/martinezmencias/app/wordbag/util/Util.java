@@ -56,6 +56,14 @@ public class Util {
 		setFont(DEFAULT_FONT_BOLD, textView, activity);
 	}
 	
+	public static void setDefaultFontSerifBold(TextView textView, Context context){
+		setFont(DEFAULT_FONT_SERIF_BOLD, textView, context);
+	}
+
+	public static void setDefaultFontSerifBold(int textView, Activity activity){
+		setFont(DEFAULT_FONT_SERIF_BOLD, textView, activity);
+	}
+
 	public static void setDefaultFontBold(int textView, Fragment fragment){
 		setFont(DEFAULT_FONT_BOLD, textView, fragment);
 	}

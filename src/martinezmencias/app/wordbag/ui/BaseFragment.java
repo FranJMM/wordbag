@@ -4,6 +4,7 @@ import martinezmencias.app.wordbag.R;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
@@ -13,6 +14,10 @@ public class BaseFragment extends Fragment {
 		return getActivity().findViewById(id);
 	}
 	
+	protected View find(ViewGroup viewGroup, int id){
+		return viewGroup.findViewById(id);
+	}
+
 	@Override
 	public void onStop(){
 		hideKeyboard();

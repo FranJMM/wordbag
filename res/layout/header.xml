@@ -1,16 +1,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/Header">
-    <LinearLayout
+    <RelativeLayout
         style="@style/HeaderApplication">
-        <ImageView 
-            android:src="@drawable/header_icon"
-            style="@style/HeaderIcon"/>
-	    <TextView
+		<TextView
 	        android:id="@+id/header_title"
-	        android:text="@string/app_name"
 	        style="@style/HeaderTitle"/>
-    </LinearLayout>
+		       <Button
+					android:id="@+id/alphabet_button"
+					style="@style/HeaderAlphabetButton"/>
+    </RelativeLayout>
     <View
         style="@style/HeaderApplicationBottomLine" />
     <include layout="@layout/navigation_bar" />

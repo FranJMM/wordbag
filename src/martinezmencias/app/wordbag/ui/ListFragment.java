@@ -75,7 +75,7 @@ public class ListFragment extends BaseFragment {
 	}
 
 	public void setLayout(){
-		int dictionaryPreference = Util.getDictionaryIdPreference(getActivity());
+		final int dictionaryPreference = Util.getDictionaryIdPreference(getActivity());
 		if(dictionaryPreference > -1 ){
 			find(R.id.noDictionariesMessage).setVisibility(View.GONE);
 			find(R.id.noWordsMessage).setVisibility(View.GONE);
@@ -144,8 +144,24 @@ public class ListFragment extends BaseFragment {
 			}
 			adapter.notifyDataSetChanged();
 			
+			//Set alphabet scroll view
+			if(words.size() > 0) {
+				find(R.id.alphabet_button).setVisibility(View.VISIBLE);
+				Util.setDefaultFontSerifBold(R.id.alphabet_button, getActivity());
+				find(R.id.alphabet_button).setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						find(R.id.listHeaderAlphabetContainer).setVisibility(View.VISIBLE);
+						setAlphabet();
+					}
+				});
+			} else {
+				find(R.id.alphabet_button).setVisibility(View.GONE);
+			}
+
 		} else {
 			//TODO No dictionary
+			find(R.id.alphabet_button).setVisibility(View.GONE);
 			find(R.id.headerDictionary).setVisibility(View.GONE);
 			find(R.id.dictionariesEdition).setVisibility(View.VISIBLE);
 			find(R.id.noDictionariesMessage).setVisibility(View.VISIBLE);
@@ -305,6 +321,28 @@ public class ListFragment extends BaseFragment {
 		viewRowWord.findViewById(R.id.wordEdition).setVisibility(View.VISIBLE);
 	}
 	
+	private void setAlphabet() {
+		list.setSelection(0);
+		final int dictionaryPreference = Util.getDictionaryIdPreference(getActivity());
+		ArrayList<String> characters = db.getDistinctInitialCharactersFromDictionary(dictionaryPreference);
+		ViewGroup alphabetLayout = (ViewGroup)find(R.id.listHeaderAlphabetLayout);
+		alphabetLayout.removeAllViews();
+		for(int i=0; i < characters.size(); i++){
+			ViewGroup characterLayout = (ViewGroup)this.getActivity().getLayoutInflater().inflate(R.layout.alphabet_list_character, null);
+			Button characterView = (Button)find(characterLayout, R.id.listHeaderAlphabetCharacter);
+			characterView.setText(characters.get(i));
+			Util.setDefaultFontBold(characterView, getActivity().getBaseContext());
+			characterView.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					int position = db.getRowNumberOfFirstCharacterAppearanceFromDictionary(((TextView)v).getText().toString(), dictionaryPreference);
+					list.setSelection(position);
+				}
+			});
+			alphabetLayout.addView(characterLayout);
+		}
+	}
+
 	public class ListAdapter extends ArrayAdapter<WordWithTranslations> {
 		private final Context context;
 		private final ArrayList<WordWithTranslations> wordsWithTranslations;

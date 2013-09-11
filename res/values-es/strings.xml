@@ -14,6 +14,7 @@
     <string name="deactivate">Off</string>
     <string name="edit">Editar</string>
     <string name="check">Comprobar traducción</string>
+    <string name="alphabet">abc</string>
     <string name="toast_test_success">¡Acertaste!</string>
     <string name="toast_test_fail">¡Fallaste!</string>
     <string name="toast_added_word">%1$s ha sido añadida al diccionario</string>

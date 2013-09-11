@@ -114,7 +114,7 @@
         <item name="android:background">@color/redDark</item>
     </style>
     
-   	<style name="HeaderApplication" parent="AppBaseTheme">
+	<style name="HeaderApplication" parent="PaddedElement">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:orientation">horizontal</item>
@@ -129,12 +129,13 @@
     </style>
     
     <style name="HeaderTitle">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">0.5</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_alignParentLeft">true</item>
         <item name="android:gravity">center|left</item>
 	    <item name="android:textColor">@color/white</item>
 	    <item name="android:textSize">22sp</item>
+	    <item name="android:text">@string/app_name</item>
 	</style>
 	
     <style name="HeaderIcon" parent="PaddedElement">
@@ -145,6 +146,18 @@
 	    <item name="android:scaleType">center</item>
 	</style>
 	
+    <style name="HeaderAlphabetButton">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+		<item name="android:gravity">center</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:text">@string/alphabet</item>
+        <item name="android:background">@drawable/header_button_background</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
    	<style name="HeaderDictionaryPreference" parent="PaddedElement">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">0.5</item>
@@ -152,13 +165,6 @@
         <item name="android:gravity">center|left</item>
 	    <item name="android:textColor">@color/white</item>
 	    <item name="android:textSize">24sp</item>
-	</style>
-	
-	<style name="HeaderButton" parent="AppTheme">
-	    <item name="android:layout_width">50dp</item>
-	    <item name="android:layout_height">match_parent</item>
-	    <item name="android:background">@color/redDark</item>
-	    <item name="android:scaleType">fitXY</item>
 	</style>
 	
 	<style name="NavigationBar">
@@ -186,7 +192,7 @@
 	    <item name="android:layout_height">match_parent</item>
 	    <item name="android:gravity">center</item>
 	    <item name="android:orientation">horizontal</item>
-	   	<item name="android:textColor">@color/gray_1</item>
+		<item name="android:textColor">@color/black</item>
 	   	<item name="android:textSize">14dp</item>
 	</style>
 	
@@ -308,12 +314,45 @@
 	    <item name="android:drawSelectorOnTop">false</item>
 	    <item name="android:focusable">false</item>
 	    <item name="android:divider">@color/transparent</item>
+	    <item name="android:scrollbars">none</item>
 	</style>
 	
 	<style name="ListHeader" parent="AppTheme">
 	   	<item name="android:layout_width">match_parent</item>
 	    <item name="android:layout_height">wrap_content</item>
 	    <item name="android:orientation">vertical</item>
+	</style>
+
+	<style name="ListHeaderAlphabetContainer" parent="AppTheme">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	    <item name="android:visibility">gone</item>
+	</style>
+
+	<style name="ListHeaderAlphabet" parent="AppTheme">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:scrollbars">none</item>
+	</style>
+
+	<style name="ListHeaderAlphabetLayout" parent="AppTheme">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	</style>
+
+	<style name="ListHeaderAlphabetCharacterLayout" parent="AppTheme">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:gravity">center</item>
+	</style>
+
+	<style name="ListHeaderAlphabetCharacter" parent="AppTheme">
+	    <item name="android:layout_width">50dp</item>
+	    <item name="android:layout_height">50dp</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:textSize">18sp</item>
+	    <item name="android:background">@drawable/row_background</item>
 	</style>
 	
 	<style name="ListHeaderDictionary" parent="PaddedElement">
