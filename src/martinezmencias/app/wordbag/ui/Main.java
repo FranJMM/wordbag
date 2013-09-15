@@ -80,6 +80,7 @@ public class Main extends FragmentActivity {
 		findViewById(R.id.navigation_tab_selector_1).setVisibility(View.GONE);
 		findViewById(R.id.navigation_tab_selector_2).setVisibility(View.VISIBLE);
 		findViewById(R.id.navigation_tab_selector_3).setVisibility(View.GONE);
+		findViewById(R.id.discardButton).setVisibility(View.GONE);
 		startFragment(new ListFragment());
 	}
 	
@@ -89,6 +90,7 @@ public class Main extends FragmentActivity {
 		findViewById(R.id.navigation_tab_selector_3).setVisibility(View.VISIBLE);
 		findViewById(R.id.alphabetButton).setVisibility(View.GONE);
 		findViewById(R.id.dictionariesEditionButton).setVisibility(View.GONE);
+		findViewById(R.id.discardButton).setVisibility(View.GONE);
 		startFragment(new TestFragment());
 	}
 	

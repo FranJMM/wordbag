@@ -12,6 +12,9 @@
 		<ImageButton
 			android:id="@+id/dictionariesEditionButton"
 			style="@style/HeaderDictionariesEditionButton"/>
+		<ImageButton
+			android:id="@+id/discardButton"
+			style="@style/HeaderDiscardButton"/>
     </RelativeLayout>
     <View
         style="@style/HeaderApplicationBottomLine" />

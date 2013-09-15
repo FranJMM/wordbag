@@ -175,6 +175,13 @@
         <item name="android:gravity">center</item>  
         <item name="android:contentDescription">@string/description_dictionaries</item>
     </style>
+    
+    <style name="HeaderDiscardButton" parent="HeaderButton">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:src">@drawable/discard</item>
+        <item name="android:gravity">center</item>  
+        <item name="android:contentDescription">@string/description_discard_new_word_data</item>
+    </style>
 	
 	<style name="NavigationBar">
 	    <item name="android:layout_width">match_parent</item>

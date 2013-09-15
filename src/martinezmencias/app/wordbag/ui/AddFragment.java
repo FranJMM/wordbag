@@ -12,6 +12,8 @@ import martinezmencias.app.wordbag.util.Util;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -57,6 +59,7 @@ public class AddFragment extends BaseFragment {
 					addTranslation(wordWithTranslations.getTranslations().get(i).getTranslationName());
 				}
 				((Button)find(R.id.addWordWithTranslations)).setText("Update");
+				find(R.id.discardButton).setVisibility(View.VISIBLE);
 			}
 			Util.setDefaultFontBold((TextView)find(R.id.wordTitle), getActivity().getBaseContext());
 			Util.setDefaultFont((TextView)find(R.id.word), getActivity().getBaseContext());
@@ -76,6 +79,12 @@ public class AddFragment extends BaseFragment {
 					addWordWithTranslations();
 				}
 			});
+			find(R.id.discardButton).setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					clearAddForm();
+				}
+			});
 			((EditText)find(R.id.translation)).setOnEditorActionListener(new OnEditorActionListener() {
 			    @Override
 			    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -87,6 +96,28 @@ public class AddFragment extends BaseFragment {
 			            return false;
 			        }
 			    }
+			});
+			((EditText)find(R.id.word)).addTextChangedListener(new TextWatcher() {	
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count) {
+					setDiscardButton();
+				}
+				@Override
+				public void afterTextChanged(Editable s) {}
+
+				@Override
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+			});
+			((EditText)find(R.id.translation)).addTextChangedListener(new TextWatcher() {	
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count) {
+					setDiscardButton();
+				}
+				@Override
+				public void afterTextChanged(Editable s) {}
+
+				@Override
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 			});
 		}else{
 			find(R.id.addNoDictionariesMessage).setVisibility(View.VISIBLE);
@@ -113,6 +144,7 @@ public class AddFragment extends BaseFragment {
 		String translation = translationView.getText().toString();
 		translationView.setText("");
 		addTranslation(translation);
+		find(R.id.discardButton).setVisibility(View.VISIBLE);
 		final ScrollView scrollView = (ScrollView)find(R.id.scrollView);
 		scrollView.post(new Runnable() {
 		    @Override
@@ -124,6 +156,7 @@ public class AddFragment extends BaseFragment {
 	
 	public void removeTranslation(View v){
 		((LinearLayout)v.getParent().getParent()).removeView((View)v.getParent());
+		setDiscardButton();
 	}
 	
 	public void addWordWithTranslations(){
@@ -146,7 +179,6 @@ public class AddFragment extends BaseFragment {
 					TextView translation = ((TextView)((LinearLayout)find(R.id.added_translations)).getChildAt(i).findViewById(R.id.addedTranslationText));
 					wordWithTranslations.getTranslations().add(new Translation(translation.getText().toString()));
 				}
-				
 				//Delete preexisting word (if exists)
 				if(id > -1){
 					db.deleteWord(id);
@@ -160,5 +192,24 @@ public class AddFragment extends BaseFragment {
 		}else{
 			Toast.makeText(getActivity().getBaseContext(), getString(R.string.toast_add_no_word), Toast.LENGTH_LONG).show();
 		}
+	}
+	
+	public void setDiscardButton() {
+		String word = ((TextView)find(R.id.word)).getText().toString();
+		String translation = ((TextView)find(R.id.translation)).getText().toString();
+		int numTranslations = ((LinearLayout)find(R.id.added_translations)).getChildCount();
+		if(word.length() == 0 && translation.length() == 0 && numTranslations == 0) {
+			find(R.id.discardButton).setVisibility(View.GONE);
+		} else {
+			find(R.id.discardButton).setVisibility(View.VISIBLE);
+		}
+	}
+	
+	public void clearAddForm() {
+		((TextView)find(R.id.word)).setText("");
+		find(R.id.word).requestFocus();
+		((TextView)find(R.id.translation)).setText("");
+		((LinearLayout)find(R.id.added_translations)).removeAllViews();
+		find(R.id.discardButton).setVisibility(View.GONE);
 	}
 }
