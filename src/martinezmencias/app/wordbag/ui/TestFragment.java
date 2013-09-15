@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import martinezmencias.app.wordbag.R;
 import martinezmencias.app.wordbag.R.layout;
+import martinezmencias.app.wordbag.database.data.Translation;
 import martinezmencias.app.wordbag.database.data.Word;
 import martinezmencias.app.wordbag.database.handler.DatabaseHandler;
 import martinezmencias.app.wordbag.util.Util;
@@ -21,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.TextView.OnEditorActionListener;
@@ -93,11 +95,49 @@ public class TestFragment extends BaseFragment {
 	}
 	
 	public void check(){
-		String answer = ((TextView)(find(R.id.answer))).getText().toString();
-		boolean result = db.checkTranslation(word, answer);
-		String text = result ? getString(R.string.toast_test_success) : getString(R.string.toast_test_fail);
-		Toast.makeText(getActivity().getBaseContext(), text, Toast.LENGTH_SHORT).show();
-		getMainActivity().goToTest();	
+			String answer = ((TextView)(find(R.id.answer))).getText().toString();
+			boolean success = db.checkTranslation(word, answer);
+			if(success) {
+				String text = success ? getString(R.string.toast_test_success) : getString(R.string.toast_test_fail);
+				Toast.makeText(getActivity().getBaseContext(), text, Toast.LENGTH_SHORT).show();
+				nextQuestion();
+			} else {
+				hideKeyboard();
+				find(R.id.showRightAnswer).setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						showRightAnswer();
+					}
+				});
+				find(R.id.nextQuestion).setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						nextQuestion();
+					}
+				});
+				Util.setDefaultFont(R.id.testResultMessage, getActivity());
+				((TextView)find(R.id.testResultMessage)).setText(answer);
+				find(R.id.answer).setVisibility(View.GONE);
+				find(R.id.check).setVisibility(View.GONE);
+				find(R.id.testResultLayout).setVisibility(View.VISIBLE);
+				find(R.id.testButtonsResultContainer).setVisibility(View.VISIBLE);
+			}
 	}
-
+	
+	public void showRightAnswer() {
+		hideKeyboard();
+		ArrayList<Translation> translations = db.getAllTranslationsFromWord(word.getID());
+		TextView testFailMessage = (TextView) find(R.id.testResultMessage);
+		testFailMessage.setText(translations.get(0).getTranslationName());
+		for(int i = 1; i < translations.size(); i++){
+			testFailMessage.setText(testFailMessage.getText() + ", "+translations.get(i).getTranslationName());
+		}
+		find(R.id.showRightAnswer).setVisibility(View.GONE);
+		((ImageView)find(R.id.testResultIcon)).setImageResource(R.drawable.test_good);
+		
+	}
+	
+	public void nextQuestion() {
+		getMainActivity().goToTest();
+	}
 }

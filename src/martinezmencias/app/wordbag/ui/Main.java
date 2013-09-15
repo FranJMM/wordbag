@@ -25,7 +25,7 @@ public class Main extends FragmentActivity {
 		setContentView(R.layout.activity_main);
 		db = new DatabaseHandler(this);
 		
-		Util.setDefaultFont(R.id.header_title, this);
+		Util.setDefaultFont(R.id.headerTitle, this);
 		Util.setDefaultFontBold(R.id.navigation_tab_selector_1_text, this);
 		Util.setDefaultFontBold(R.id.navigation_tab_selector_2_text, this);
 		Util.setDefaultFontBold(R.id.navigation_tab_selector_3_text, this);
@@ -67,7 +67,8 @@ public class Main extends FragmentActivity {
 		findViewById(R.id.navigation_tab_selector_1).setVisibility(View.VISIBLE);
 		findViewById(R.id.navigation_tab_selector_2).setVisibility(View.GONE);
 		findViewById(R.id.navigation_tab_selector_3).setVisibility(View.GONE);
-		findViewById(R.id.alphabet_button).setVisibility(View.GONE);
+		findViewById(R.id.alphabetButton).setVisibility(View.GONE);
+		findViewById(R.id.dictionariesEditionButton).setVisibility(View.GONE);
 		Bundle arguments = new Bundle();
 		arguments.putInt("id", id);
 		Fragment addFragment = new AddFragment();
@@ -86,14 +87,15 @@ public class Main extends FragmentActivity {
 		findViewById(R.id.navigation_tab_selector_1).setVisibility(View.GONE);
 		findViewById(R.id.navigation_tab_selector_2).setVisibility(View.GONE);
 		findViewById(R.id.navigation_tab_selector_3).setVisibility(View.VISIBLE);
-		findViewById(R.id.alphabet_button).setVisibility(View.GONE);
+		findViewById(R.id.alphabetButton).setVisibility(View.GONE);
+		findViewById(R.id.dictionariesEditionButton).setVisibility(View.GONE);
 		startFragment(new TestFragment());
 	}
 	
 	public void updateDictionaryPreference() {
 		dictionaryIdPreference = Util.getDictionaryIdPreference(this);
 		if(dictionaryIdPreference > -1){
-			((TextView)findViewById(R.id.header_title)).setText(db.getDictionaryNameById(dictionaryIdPreference));
+			((TextView)findViewById(R.id.headerTitle)).setText(db.getDictionaryNameById(dictionaryIdPreference));
 		}
 	}
 

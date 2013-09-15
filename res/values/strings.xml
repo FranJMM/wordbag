@@ -15,6 +15,9 @@
     <string name="edit">Edit</string>
     <string name="check">Check translation</string>
     <string name="alphabet">abc</string>
+    <string name="add_new_dictionary">Add new dictionary</string>
+    <string name="show_right_answer">Show right answer</string>
+    <string name="next">Next</string>
     <string name="toast_test_success">¡You hit!</string>
     <string name="toast_test_fail">¡You failed!</string>
     <string name="toast_added_word">%1$s has been added to the dictionary</string>
@@ -26,5 +29,7 @@
     <string name="message_no_dictionaries_add">You do not have any dictionary yet.\n\nGo to LIST and add some new dictionary, then you will be able to add words to it.</string>
 	<string name="message_no_dictionaries_test">You do not have any dictionary yet.\n\nGo to LIST and add some new dictionary, then you will be able to add words to it.</string>
 	<string name="message_no_words_test">You do not have any word yet in this dictionary.\n\nGo to ADD and add some new word to the dictionary\n\nThen, you will be able to test if you remember its translations.</string>
+	<string name="message_right_translations">Right translations: %1$s</string>
 	<string name="hint_new_dictionary">Dictionary (spanish-english, e.g.)</string>
+	<string name="description_dictionaries">Shows the list of dictionaries you currently have</string>
 </resources>

@@ -80,12 +80,9 @@ public class ListFragment extends BaseFragment {
 			find(R.id.noDictionariesMessage).setVisibility(View.GONE);
 			find(R.id.noWordsMessage).setVisibility(View.GONE);
 			find(R.id.firstWordMessage).setVisibility(View.GONE);
-			find(R.id.headerDictionary).setVisibility(View.VISIBLE);
+			find(R.id.dictionariesEditionButton).setVisibility(View.VISIBLE);
 			((Main)getActivity()).updateDictionaryPreference();
-			TextView headerDictionaryText = (TextView)list.findViewById(R.id.headerDictionaryText);
-			headerDictionaryText.setText(db.getDictionaryNameById(dictionaryPreference));
-			Util.setDefaultFont(headerDictionaryText, getActivity());
-			list.findViewById(R.id.headerDictionary).setOnClickListener(new View.OnClickListener() {
+			find(R.id.dictionariesEditionButton).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					toggleDictionariesList();
@@ -146,9 +143,9 @@ public class ListFragment extends BaseFragment {
 			
 			//Set alphabet scroll view
 			if(words.size() > 0) {
-				find(R.id.alphabet_button).setVisibility(View.VISIBLE);
-				Util.setDefaultFontSerifBold(R.id.alphabet_button, getActivity());
-				find(R.id.alphabet_button).setOnClickListener(new View.OnClickListener() {
+				find(R.id.alphabetButton).setVisibility(View.VISIBLE);
+				Util.setDefaultFontSerifBold(R.id.alphabetButton, getActivity());
+				find(R.id.alphabetButton).setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						find(R.id.listHeaderAlphabetContainer).setVisibility(View.VISIBLE);
@@ -156,13 +153,12 @@ public class ListFragment extends BaseFragment {
 					}
 				});
 			} else {
-				find(R.id.alphabet_button).setVisibility(View.GONE);
+				find(R.id.alphabetButton).setVisibility(View.GONE);
 			}
 
 		} else {
 			//TODO No dictionary
-			find(R.id.alphabet_button).setVisibility(View.GONE);
-			find(R.id.headerDictionary).setVisibility(View.GONE);
+			find(R.id.alphabetButton).setVisibility(View.GONE);
 			find(R.id.dictionariesEdition).setVisibility(View.VISIBLE);
 			find(R.id.noDictionariesMessage).setVisibility(View.VISIBLE);
 			find(R.id.noWordsMessage).setVisibility(View.GONE);
@@ -185,6 +181,7 @@ public class ListFragment extends BaseFragment {
 		if(find(R.id.dictionariesEdition).getVisibility() == View.VISIBLE){
 			find(R.id.dictionariesEdition).setVisibility(View.GONE);
 		}else{
+			list.setSelection(0);
 			find(R.id.dictionariesEdition).setVisibility(View.VISIBLE);
 		}
 	}

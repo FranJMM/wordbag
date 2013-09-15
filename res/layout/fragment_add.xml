@@ -16,8 +16,7 @@
 	                style="@style/AddSection">
 				    <TextView
 				       android:id="@+id/wordTitle"
-				       android:text="@string/word"
-				       style="@style/AddSectionTitle"/>
+				       style="@style/AddSectionTitleWord"/>
 				    <EditText
 				        android:id="@+id/word"
 				        style="@style/AddWordEditText">
@@ -27,8 +26,7 @@
 	                style="@style/AddSection">
 				    <TextView
 				       android:id="@+id/translationsTitle"
-				       android:text="@string/translations"
-				       style="@style/AddSectionTitle"/>
+				       style="@style/AddSectionTitleTranslations"/>
 					<LinearLayout 
 					    android:id="@+id/added_translations"
 					    style="@style/AddTranslationsList">

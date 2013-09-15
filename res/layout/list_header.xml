@@ -17,34 +17,31 @@
 	       style="@style/BottomLine"/>
     </LinearLayout>
 	<LinearLayout
-    android:id="@+id/headerDictionary"
-    style="@style/ListHeaderDictionary">
-	    <TextView
-	        android:id="@+id/headerDictionaryText"
-	        style="@style/ListHeaderDictionaryText" />
-	</LinearLayout>
-	<include layout="@layout/divider_vertical"/>
-	<LinearLayout
 	    android:id="@+id/dictionariesEdition"
 	    style="@style/ListHeaderDictionariesEdition">
 	    <LinearLayout
 	        android:id="@+id/dictionariesList"
         	style="@style/ListHeaderDictionariesList">
-	   </LinearLayout>
-       <LinearLayout 
-		    style="@style/ListHeaderAddDictionary">
-		    <EditText
-				android:id="@+id/addDictionaryEditText"
-				style="@style/ListHeaderAddDictioanaryEdit"/>
-		    <ImageButton
-		        android:id="@+id/addButton"
-		        style="@style/ElementAddButton"
-		        android:text="@string/add"/>
 		</LinearLayout>
+		<LinearLayout
+		    style="@style/ListHeaderAddDictionary">
+		    <TextView
+		    	style="@style/ListHeaderAddDictioanaryTitle"/>
+       		<LinearLayout 
+				style="@style/ListHeaderAddDictionaryEditContainer">
+			    <EditText
+					android:id="@+id/addDictionaryEditText"
+					style="@style/ListHeaderAddDictioanaryEdit"/>
+			    <ImageButton
+			        android:id="@+id/addButton"
+			        style="@style/ElementAddButton"
+			        android:text="@string/add"/>
+			</LinearLayout>
+		</LinearLayout>
+		<View 
+	       android:id="@+id/header_divider"
+	       style="@style/BottomLine"/>
 	</LinearLayout>
-   <View 
-       android:id="@+id/header_divider"
-       style="@style/BottomLine"/>
 	<TextView
         android:id="@+id/noDictionariesMessage"
         style="@style/Message"

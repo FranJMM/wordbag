@@ -80,6 +80,14 @@
 	    <item name="android:textColor">@color/black</item>
 	</style>
 	
+	<style name="ElementSectionTitle" parent="AppTheme">
+	    <item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textColor">@color/black</item>
+	    <item name="android:textStyle">bold</item>
+	    <item name="android:textSize">22sp</item>
+	</style>
+	
 	<style name="Message" parent="PaddedElement">
 	   	<item name="android:layout_width">match_parent</item>
 	    <item name="android:layout_height">wrap_content</item>
@@ -114,7 +122,7 @@
         <item name="android:background">@color/redDark</item>
     </style>
     
-	<style name="HeaderApplication" parent="PaddedElement">
+	<style name="HeaderApplication">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:orientation">horizontal</item>
@@ -128,13 +136,13 @@
         <item name="android:background">@color/redDarkDarker</item>
     </style>
     
-    <style name="HeaderTitle">
+    <style name="HeaderTitle" parent="PaddedElement">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_alignParentLeft">true</item>
         <item name="android:gravity">center|left</item>
 	    <item name="android:textColor">@color/white</item>
-	    <item name="android:textSize">22sp</item>
+	    <item name="android:textSize">20sp</item>
 	    <item name="android:text">@string/app_name</item>
 	</style>
 	
@@ -146,26 +154,27 @@
 	    <item name="android:scaleType">center</item>
 	</style>
 	
-    <style name="HeaderAlphabetButton">
+    <style name="HeaderButton" parent="AppTheme">
         <item name="android:layout_width">48dp</item>
         <item name="android:layout_height">48dp</item>
-		<item name="android:gravity">center</item>
-        <item name="android:layout_alignParentRight">true</item>
-        <item name="android:text">@string/alphabet</item>
         <item name="android:background">@drawable/header_button_background</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:textSize">22sp</item>
         <item name="android:visibility">gone</item>
     </style>
-
-   	<style name="HeaderDictionaryPreference" parent="PaddedElement">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_weight">0.5</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:gravity">center|left</item>
-	    <item name="android:textColor">@color/white</item>
-	    <item name="android:textSize">24sp</item>
-	</style>
+    
+    <style name="HeaderAlphabetButton" parent="HeaderButton"> 
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/alphabet</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:layout_toLeftOf">@+id/dictionariesEditionButton</item>
+    </style>
+	
+    <style name="HeaderDictionariesEditionButton" parent="HeaderButton">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:src">@drawable/dictionaries</item>
+        <item name="android:gravity">center</item>  
+        <item name="android:contentDescription">@string/description_dictionaries</item>
+    </style>
 	
 	<style name="NavigationBar">
 	    <item name="android:layout_width">match_parent</item>
@@ -246,12 +255,12 @@
         <item name="android:orientation">vertical</item>
     </style>
 	
-	<style name="AddSectionTitle" parent="AppTheme">
-	    <item name="android:layout_width">wrap_content</item>
-	    <item name="android:layout_height">wrap_content</item>
-	    <item name="android:textColor">@color/black</item>
-	    <item name="android:textStyle">bold</item>
-	    <item name="android:textSize">22sp</item>
+	<style name="AddSectionTitleWord" parent="ElementSectionTitle">
+	    <item name="android:text">@string/word</item>
+	</style>
+	
+	<style name="AddSectionTitleTranslations" parent="ElementSectionTitle">
+	    <item name="android:text">@string/translations</item>
 	</style>
 	
 	<style name="AddWordEditText" parent="EditTextAppTheme">
@@ -385,6 +394,19 @@
 	<style name="ListHeaderAddDictionary" parent="PaddedElement">
 	   	<item name="android:layout_width">match_parent</item>
 	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:orientation">vertical</item>
+	    <item name="android:gravity">center</item>
+	    <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+	</style>
+	
+	<style name="ListHeaderAddDictioanaryTitle" parent="ElementSectionTitle">
+	   	<item name="android:text">@string/add_new_dictionary</item>
+	</style>
+
+	<style name="ListHeaderAddDictionaryEditContainer">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">wrap_content</item>
 	    <item name="android:orientation">horizontal</item>
 	    <item name="android:gravity">center</item>
 	    <item name="android:paddingTop">20dp</item>
@@ -497,9 +519,10 @@
 	   	<item name="android:textSize">30sp</item>
 	   	<item name="android:autoLink">none</item>
 	   	<item name="android:singleLine">true</item>
+	   	<item name="android:visibility">visible</item>
 	</style>
 	
-	<style name="TestCheckButtonContainer" parent="AppTheme">
+	<style name="TestButtonContainer" parent="AppTheme">
 	   	<item name="android:layout_width">match_parent</item>
 	   	<item name="android:layout_height">0dp</item>
 	   	<item name="android:layout_weight">0.3</item>
@@ -508,6 +531,50 @@
 	
 	<style name="TestCheckButton" parent="AppButton">
         <item name="android:layout_width">match_parent</item>
+    </style>
+    
+	<style name="TestResultLayout">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">match_parent</item>
+	   	<item name="android:visibility">gone</item>
+	   	<item name="android:orientation">vertical</item>
+	   	<item name="android:gravity">top|center</item>
+	</style>
+    
+	<style name="TestResultImage">
+	   	<item name="android:layout_width">48dp</item>
+	   	<item name="android:layout_height">48dp</item>
+	   	<item name="android:scaleType">fitXY</item>
+	   	<item name="android:gravity">center</item>
+	   	<item name="android:src">@drawable/test_fail</item>
+	</style>
+    
+	<style name="TestResultMessage">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">wrap_content</item>
+	   	<item name="android:gravity">center</item>
+	   	<item name="android:textColor">@color/gray_1</item>
+	   	<item name="android:textSize">22sp</item>
+	</style>
+	
+	<style name="TestButtonsResultContainer">
+		<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">wrap_content</item>
+	   	<item name="android:orientation">horizontal</item>
+	</style>
+	
+	<style name="TestShowRightAnswerButton" parent="AppButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:text">@string/show_right_answer</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    
+	<style name="TestButtonNextQuestion" parent="AppButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:text">@string/next</item>
     </style>
 	
 	<style name="DividerHorizontal" parent="AppTheme">

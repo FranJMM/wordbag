@@ -15,6 +15,9 @@
     <string name="edit">Editar</string>
     <string name="check">Comprobar traducción</string>
     <string name="alphabet">abc</string>
+    <string name="add_new_dictionary">Añadir nuevo diccionario</string>
+    <string name="show_right_answer">Ver correcta</string>
+    <string name="next">Siguiente</string>
     <string name="toast_test_success">¡Acertaste!</string>
     <string name="toast_test_fail">¡Fallaste!</string>
     <string name="toast_added_word">%1$s ha sido añadida al diccionario</string>
@@ -26,5 +29,7 @@
     <string name="message_no_dictionaries_add">No tienes ningún diccionario todavía.\n\nVe a LISTA y añade un diccionario, después podrás agregarle palabras</string>
 	<string name="message_no_dictionaries_test">No tienes ningún diccionario todavía.\n\nVe a LISTA y añade un diccionario, después podrás agregarle palabras.</string>
 	<string name="message_no_words_test">No tienes ninguna palabra todavía en este diccionario.\n\nVe a AÑADIR y agrega alguna palabra\n\nDespués podrás testear si recuerdas sus traducciones.</string>
+	<string name="message_right_translations">Traducciones correctas: %1$s</string>
 	<string name="hint_new_dictionary">Diccionario (spa-eng, p.e.)</string>
+	<string name="description_dictionaries">Muestra la lista de diccionarios que actualmente tienes</string>
 </resources>

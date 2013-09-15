@@ -4,11 +4,14 @@
     <RelativeLayout
         style="@style/HeaderApplication">
 		<TextView
-	        android:id="@+id/header_title"
+	        android:id="@+id/headerTitle"
 	        style="@style/HeaderTitle"/>
-		       <Button
-					android:id="@+id/alphabet_button"
-					style="@style/HeaderAlphabetButton"/>
+		<Button
+			android:id="@+id/alphabetButton"
+			style="@style/HeaderAlphabetButton"/>
+		<ImageButton
+			android:id="@+id/dictionariesEditionButton"
+			style="@style/HeaderDictionariesEditionButton"/>
     </RelativeLayout>
     <View
         style="@style/HeaderApplicationBottomLine" />
