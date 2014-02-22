@@ -372,11 +372,19 @@ public class ListFragment extends BaseFragment {
 					toggleEditWord((View)v.getParent());
 				}
 			});
-			
+
 			TextView testCount = (TextView)view.findViewById(R.id.testCount);
 			testCount.setText(word.getRightCount() + "/" +word.getWrongCount());
 			Util.setDefaultFont(testCount, context);
-			
+
+			if(word.isActive()) {
+				find((ViewGroup)view,R.id.word).setBackgroundResource(R.drawable.row_background);
+				find((ViewGroup)view,R.id.rowDivider).setBackgroundColor(getResources().getColor(R.color.gray_2));
+			} else {
+				find((ViewGroup)view,R.id.word).setBackgroundResource(R.drawable.row_background_marked);
+				find((ViewGroup)view,R.id.rowDivider).setBackgroundColor(getResources().getColor(R.color.white));
+			}
+
 			if(visibleEditWordId == word.getID()){
 				setEditWordLayout(view, wordWithTranslations);
 			}else{

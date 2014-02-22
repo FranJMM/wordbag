@@ -11,5 +11,7 @@
             style="@style/RowWordTextRight" />
     </LinearLayout>
     <include layout="@layout/edit_word" />
-    <include layout="@layout/divider_vertical"/>
+    <View
+		android:id="@+id/rowDivider"
+		style="@style/ElementDivider"/>
 </LinearLayout>

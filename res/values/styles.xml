@@ -88,6 +88,11 @@
 	    <item name="android:textSize">22sp</item>
 	</style>
 	
+	<style name="ElementDivider" parent="AppTheme">
+	    <item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">2px</item>
+	</style>
+
 	<style name="Message" parent="PaddedElement">
 	   	<item name="android:layout_width">match_parent</item>
 	    <item name="android:layout_height">wrap_content</item>

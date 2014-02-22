@@ -5,5 +5,7 @@
         android:id="@+id/dictionary"
 		style="@style/ElementRowText"/>
 	<include layout="@layout/edit_dictionary" />
-	<include layout="@layout/divider_vertical"/>
+	<View
+		android:id="@+id/rowDivider"
+		style="@style/ElementDivider" />
 </LinearLayout>

@@ -4,6 +4,7 @@
     <LinearLayout 
 	    style="@style/DividerVerticalUpper">
 	</LinearLayout>
+	<!--  -->
 	<LinearLayout 
 	    style="@style/DividerVerticalLower">
 	</LinearLayout>
