@@ -79,12 +79,12 @@ public class AddFragment extends BaseFragment {
 					addWordWithTranslations();
 				}
 			});
-			find(R.id.discardButton).setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					clearAddForm();
-				}
-			});
+//			find(R.id.discardButton).setOnClickListener(new View.OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					clearAddForm();
+//				}
+//			});
 			((EditText)find(R.id.translation)).setOnEditorActionListener(new OnEditorActionListener() {
 			    @Override
 			    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

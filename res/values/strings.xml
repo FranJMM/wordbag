@@ -18,6 +18,8 @@
     <string name="add_new_dictionary">Add new dictionary</string>
     <string name="show_right_answer">Show right answer</string>
     <string name="next">Next</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
     <string name="toast_test_success">¡You hit!</string>
     <string name="toast_test_fail">¡You failed!</string>
     <string name="toast_added_word">%1$s has been added to the dictionary</string>
@@ -33,4 +35,10 @@
 	<string name="hint_new_dictionary">Dictionary (spanish-english, e.g.)</string>
 	<string name="description_dictionaries">Shows the list of dictionaries you currently have</string>
 	<string name="description_discard_new_word_data">Discard new word data</string>
+    <string-array
+        name="menu_items">
+     	<item>Test</item>
+     	<item>List</item>
+     	<item>Add</item>
+   	</string-array>
 </resources>

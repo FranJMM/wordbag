@@ -80,14 +80,14 @@ public class ListFragment extends BaseFragment {
 			find(R.id.noDictionariesMessage).setVisibility(View.GONE);
 			find(R.id.noWordsMessage).setVisibility(View.GONE);
 			find(R.id.firstWordMessage).setVisibility(View.GONE);
-			find(R.id.dictionariesEditionButton).setVisibility(View.VISIBLE);
+//			find(R.id.dictionariesEditionButton).setVisibility(View.VISIBLE);
 			((Main)getActivity()).updateDictionaryPreference();
-			find(R.id.dictionariesEditionButton).setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					toggleDictionariesList();
-				}
-			});
+//			find(R.id.dictionariesEditionButton).setOnClickListener(new View.OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					toggleDictionariesList();
+//				}
+//			});
 			find(R.id.dictionariesEdition).setVisibility(View.GONE);
 			ArrayList<Dictionary> dictionaries = db.getAllDictionaries();
 			LayoutInflater inflater = (LayoutInflater) getActivity().getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -142,6 +142,7 @@ public class ListFragment extends BaseFragment {
 			adapter.notifyDataSetChanged();
 			
 			//Set alphabet scroll view
+			/*
 			if(words.size() > 0) {
 				find(R.id.alphabetButton).setVisibility(View.VISIBLE);
 				Util.setDefaultFontSerifBold(R.id.alphabetButton, getActivity());
@@ -155,6 +156,7 @@ public class ListFragment extends BaseFragment {
 			} else {
 				find(R.id.alphabetButton).setVisibility(View.GONE);
 			}
+			*/
 
 		} else {
 			//TODO No dictionary
