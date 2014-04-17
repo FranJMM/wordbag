@@ -15,6 +15,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -23,11 +25,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class Main extends ActionBarActivity {
+    
+    private static final int FRAGMENT_TEST = 0;
+    private static final int FRAGMENT_LIST = 1;
+    private static final int FRAGMENT_ADD = 2;
+    
 	
 	private DatabaseHandler db;
 	private int dictionaryIdPreference;
 	private DrawerLayout mDrawerLayout;
 	private ActionBarDrawerToggle mDrawerToggle;
+	private Fragment mFragment;
+	private int mCurrentFragment = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +51,20 @@ public class Main extends ActionBarActivity {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
+                switch (mCurrentFragment) {
+                case FRAGMENT_TEST:
+                    getSupportActionBar().setTitle(R.string.TEST);
+                     break;
+                 case FRAGMENT_LIST:
+                     getSupportActionBar().setTitle(R.string.LIST);
+                    break;
+                 case FRAGMENT_ADD:
+                     getSupportActionBar().setTitle(R.string.ADD);
+                    break;
+                default:
+                    break;
+                 }
+                //getActionBar().setTitle(R.string.ADD);
                 //getActionBar().setTitle(mTitle);
                 // invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
@@ -49,7 +72,7 @@ public class Main extends ActionBarActivity {
             /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                //getActionBar().setTitle(mDrawerTitle);
+                getSupportActionBar().setTitle(R.string.app_name);
                 // invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
@@ -57,6 +80,7 @@ public class Main extends ActionBarActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
         
         ListView drawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -99,23 +123,55 @@ public class Main extends ActionBarActivity {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
-
+    
+    @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+       MenuInflater inflater = getMenuInflater();
+       switch (mCurrentFragment) {
+       case FRAGMENT_TEST:
+            inflater.inflate(R.menu.menu_test, menu);
+            break;
+        case FRAGMENT_LIST:
+            inflater.inflate(R.menu.menu_list, menu);
+           break;
+        case FRAGMENT_ADD:
+            inflater.inflate(R.menu.menu_add, menu);
+           break;
+       default:
+           break;
+        }
+        return super.onCreateOptionsMenu(menu);
+     }
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Pass the event to ActionBarDrawerToggle, if it returns
-        // true, then it has handled the app icon touch event
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-          return true;
+       // Pass the event to ActionBarDrawerToggle, if it returns
+       // true, then it has handled the app icon touch event
+       if (mDrawerToggle.onOptionsItemSelected(item)) {
+        return true;
+       }
+       // Handle presses on the action bar items
+       switch (item.getItemId()) {
+           case R.id.action_discard:
+               ((AddFragment) mFragment).clearAddForm();
+               return true;
+           case R.id.action_alphabet:
+               ((ListFragment) mFragment).showAlphabet();
+               return true;
+           case R.id.action_dictionaries:
+               ((ListFragment) mFragment).toggleDictionariesList();
+               return true;
+           default:
+               return super.onOptionsItemSelected(item);
         }
-        // Handle your other action bar items...
-
-        return super.onOptionsItemSelected(item);
-    }
+   }
 	
 	private void startFragment(Fragment fragment){
+	    mFragment = fragment;
 	    mDrawerLayout.closeDrawers();
+	    supportInvalidateOptionsMenu();
 	  	FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-		transaction.replace(R.id.fragmentContainer, fragment);
+		transaction.replace(R.id.fragmentContainer, mFragment);
 		transaction.commit();
 	}
 	
@@ -136,8 +192,7 @@ public class Main extends ActionBarActivity {
 	}
 	
 	public void goToAdd(int id) {
-//		findViewById(R.id.alphabetButton).setVisibility(View.GONE);
-//		findViewById(R.id.dictionariesEditionButton).setVisibility(View.GONE);
+	    mCurrentFragment = FRAGMENT_ADD;
 		Bundle arguments = new Bundle();
 		arguments.putInt("id", id);
 		Fragment addFragment = new AddFragment();
@@ -146,14 +201,12 @@ public class Main extends ActionBarActivity {
 	}
 	
 	public void goToList() {
-//		findViewById(R.id.discardButton).setVisibility(View.GONE);
+	    mCurrentFragment = FRAGMENT_LIST;
 		startFragment(new ListFragment());
 	}
 	
 	public void goToTest() {
-//		findViewById(R.id.alphabetButton).setVisibility(View.GONE);
-//		findViewById(R.id.dictionariesEditionButton).setVisibility(View.GONE);
-//		findViewById(R.id.discardButton).setVisibility(View.GONE);
+	    mCurrentFragment = FRAGMENT_TEST;
 		startFragment(new TestFragment());
 	}
 	

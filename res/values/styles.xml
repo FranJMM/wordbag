@@ -1,12 +1,20 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
+         <item name="actionBarStyle">@style/ActionBar</item>
     </style>
-    
+
     <style name="AppTheme" parent="AppBaseTheme">
         <!--  <item name="android:fontFamily">assets/fonts/Bolide-Regular.ttf</item> -->
         <item name="android:textColor">@color/black</item>
     </style>
+    
+    <style name="ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <!--  
+        <item name="android:background">@color/redDark</item>
+        <item name="background">@color/redDark</item>
+        -->
+	</style>
     
     <style name="Fragment" parent="AppTheme">
         <item name="android:layout_width">match_parent</item>

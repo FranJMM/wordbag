@@ -18,6 +18,11 @@
     <string name="add_new_dictionary">Añadir nuevo diccionario</string>
     <string name="show_right_answer">Ver correcta</string>
     <string name="next">Siguiente</string>
+    <string name="drawer_open">Abrir</string>
+    <string name="drawer_close">Cerrar</string>
+    <string name="action_remove">Borrar</string>
+    <string name="action_alphabet">Alfabeto</string>
+    <string name="action_dictionaries">Diccionarios</string>
     <string name="toast_test_success">¡Acertaste!</string>
     <string name="toast_test_fail">¡Fallaste!</string>
     <string name="toast_added_word">%1$s ha sido añadida al diccionario</string>
@@ -33,4 +38,10 @@
 	<string name="hint_new_dictionary">Diccionario (spa-eng, p.e.)</string>
 	<string name="description_dictionaries">Muestra la lista de diccionarios que actualmente tienes</string>
 	<string name="description_discard_new_word_data">Borrar datos</string>
+	<string-array
+        name="menu_items">
+     	<item>Test</item>
+     	<item>Lista</item>
+     	<item>Añadir</item>
+   	</string-array>
 </resources>

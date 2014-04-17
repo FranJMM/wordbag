@@ -80,14 +80,7 @@ public class ListFragment extends BaseFragment {
 			find(R.id.noDictionariesMessage).setVisibility(View.GONE);
 			find(R.id.noWordsMessage).setVisibility(View.GONE);
 			find(R.id.firstWordMessage).setVisibility(View.GONE);
-//			find(R.id.dictionariesEditionButton).setVisibility(View.VISIBLE);
 			((Main)getActivity()).updateDictionaryPreference();
-//			find(R.id.dictionariesEditionButton).setOnClickListener(new View.OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					toggleDictionariesList();
-//				}
-//			});
 			find(R.id.dictionariesEdition).setVisibility(View.GONE);
 			ArrayList<Dictionary> dictionaries = db.getAllDictionaries();
 			LayoutInflater inflater = (LayoutInflater) getActivity().getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -320,7 +313,8 @@ public class ListFragment extends BaseFragment {
 		viewRowWord.findViewById(R.id.wordEdition).setVisibility(View.VISIBLE);
 	}
 	
-	private void setAlphabet() {
+	public void showAlphabet() {
+	    find(R.id.listHeaderAlphabetContainer).setVisibility(View.VISIBLE);
 		list.setSelection(0);
 		final int dictionaryPreference = Util.getDictionaryIdPreference(getActivity());
 		ArrayList<String> characters = db.getDistinctInitialCharactersFromDictionary(dictionaryPreference);

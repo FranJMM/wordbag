@@ -20,6 +20,9 @@
     <string name="next">Next</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="action_remove">Remove</string>
+    <string name="action_alphabet">Alphabet</string>
+    <string name="action_dictionaries">Dictionaries</string>
     <string name="toast_test_success">¡You hit!</string>
     <string name="toast_test_fail">¡You failed!</string>
     <string name="toast_added_word">%1$s has been added to the dictionary</string>
