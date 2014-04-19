@@ -32,7 +32,7 @@ public class Main extends ActionBarActivity {
     
 	
 	private DatabaseHandler db;
-	private int dictionaryIdPreference;
+	//private int mDictionaryIdPreference;
 	private DrawerLayout mDrawerLayout;
 	private ActionBarDrawerToggle mDrawerToggle;
 	private Fragment mFragment;
@@ -51,21 +51,7 @@ public class Main extends ActionBarActivity {
             /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
-                switch (mCurrentFragment) {
-                case FRAGMENT_TEST:
-                    getSupportActionBar().setTitle(R.string.TEST);
-                     break;
-                 case FRAGMENT_LIST:
-                     getSupportActionBar().setTitle(R.string.LIST);
-                    break;
-                 case FRAGMENT_ADD:
-                     getSupportActionBar().setTitle(R.string.ADD);
-                    break;
-                default:
-                    break;
-                 }
-                //getActionBar().setTitle(R.string.ADD);
-                //getActionBar().setTitle(mTitle);
+                updateActionBarTitle();
                 // invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
@@ -101,9 +87,9 @@ public class Main extends ActionBarActivity {
 		Util.setDefaultFontBold(R.id.navigation_tab_selector_3_text, this);
 		*/
 		
-		updateDictionaryPreference();
+		updateActionBarTitle();
 		
-		if(dictionaryIdPreference > -1 ){
+		if(Util.getDictionaryIdPreference(this) > -1 ){
 			goToTest();
 		} else {
 			goToList();
@@ -210,11 +196,14 @@ public class Main extends ActionBarActivity {
 		startFragment(new TestFragment());
 	}
 	
-	public void updateDictionaryPreference() {
-		dictionaryIdPreference = Util.getDictionaryIdPreference(this);
-		if(dictionaryIdPreference > -1){
-//			((TextView)findViewById(R.id.headerTitle)).setText(db.getDictionaryNameById(dictionaryIdPreference));
-		}
+	public void updateActionBarTitle() {
+	    int dictionaryIdPreference = Util.getDictionaryIdPreference(this);
+        String fragmentTitle = getResources().getStringArray(R.array.menu_items)[mCurrentFragment];
+        String dictionaryPreferredName = "";
+        if(dictionaryIdPreference >= 0) {
+            dictionaryPreferredName = db.getDictionaryNameById(dictionaryIdPreference);
+        }
+        getSupportActionBar().setTitle(fragmentTitle + " " + dictionaryPreferredName);
 	}
 	
 	private class DrawerItemClickListener implements ListView.OnItemClickListener {
