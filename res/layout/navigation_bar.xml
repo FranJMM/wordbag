@@ -8,7 +8,7 @@
 			style="@style/NavigationBarSelector">
 		    <TextView 
 		        android:id="@+id/navigation_tab_selector_1_text"
-		        android:text="@string/ADD"
+		        android:text="ADD"
 		        style="@style/NavigationBarSelectorText"/>
 		    <View 
 		        android:id="@+id/navigation_tab_selector_1"
@@ -20,7 +20,7 @@
 		    <TextView 
 		        android:id="@+id/navigation_tab_selector_2_text"
 		        style="@style/NavigationBarSelectorText"
-		        android:text="@string/LIST"/>
+		        android:text="LIST"/>
 		    <View 
 		        android:id="@+id/navigation_tab_selector_2"
 		     	style="@style/NavigationBarSelectorIndicator"/>
@@ -30,7 +30,7 @@
 		    style="@style/NavigationBarSelector">
 		    <TextView 
 		        android:id="@+id/navigation_tab_selector_3_text"
-		        android:text="@string/TEST"
+		        android:text="TEST"
 		        style="@style/NavigationBarSelectorText"/>
 		    <View 
 		        android:id="@+id/navigation_tab_selector_3"

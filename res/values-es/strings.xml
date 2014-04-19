@@ -3,15 +3,12 @@
     <string name="app_name">WordBag</string>
     <string name="word">Palabra</string>
     <string name="translations">Traducciones</string>
-    <string name="ADD">AÑADIR</string>
-    <string name="LIST">LISTA</string>
-    <string name="TEST">TEST</string>
     <string name="add">Añadir</string>
     <string name="add_to_dictionary">Añadir al diccionario</string>
     <string name="select">Seleccionar</string>
     <string name="delete">Borrar</string>
-    <string name="activate">On</string>
-    <string name="deactivate">Off</string>
+    <string name="activate">Activar</string>
+    <string name="deactivate">Desactivar</string>
     <string name="edit">Editar</string>
     <string name="check">Comprobar traducción</string>
     <string name="alphabet">abc</string>
