@@ -464,6 +464,7 @@
 	    <item name="android:paddingTop">10dp</item>
 	    <item name="android:paddingBottom">20dp</item>
 	    <item name="android:orientation">vertical</item>
+	    <item name="android:background">@color/transparent</item>
 	    <item name="android:visibility">gone</item>
 	</style>
 	
@@ -479,6 +480,7 @@
 	    <item name="android:layout_marginTop">0dp</item>
 	    <item name="android:layout_marginBottom">20dp</item>
 	    <item name="android:textColor">@color/black</item>
+	    <item name="android:background">@color/transparent</item>
 	</style>
 	
 	<style name="RowWord" parent="AppTheme">
@@ -492,17 +494,20 @@
 	    <item name="android:layout_height">wrap_content</item>
 	    <item name="android:orientation">horizontal</item>
 	    <item name="android:background">@drawable/row_background</item>
+	    <item name="android:background">@color/transparent</item>
 	</style>
 	
 	<style name="RowWordTextLeft" parent="ElementRowText">
 	   	<item name="android:layout_width">0dp</item>
 	    <item name="android:layout_weight">0.75</item>
+	    <item name="android:background">@color/transparent</item>
 	</style>
 	
 	<style name="RowWordTextRight" parent="ElementRowText">
 	   	<item name="android:layout_width">0dp</item>
 	    <item name="android:layout_weight">0.25</item>
 	    <item name="android:gravity">center|right</item>
+	    <item name="android:background">@color/transparent</item>
 	</style>
 	
 	<style name="RowTranslation" parent="AppTheme">

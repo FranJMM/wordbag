@@ -184,10 +184,10 @@ public class ListFragment extends BaseFragment {
 	
 	 private class SetWordListAsyncTask extends AsyncTask<Integer, Integer, ArrayList<WordWithTranslations>> {
 	     protected ArrayList<WordWithTranslations> doInBackground(Integer... dictionaryPreference) {
-	         words.clear();
 	         return db.getAllWordsWithTranslationsFromDictionary(dictionaryPreference[0]);
 	     }
 	     protected void onPostExecute(ArrayList<WordWithTranslations> wordsWithTranslations) {
+              words.clear();
 	          if(wordsWithTranslations.size() > 0) {
 	                if(wordsWithTranslations.size() == 1){
 	                    find(R.id.firstWordMessage).setVisibility(View.VISIBLE);
@@ -238,13 +238,16 @@ public class ListFragment extends BaseFragment {
 		Word word = db.getWordById((Integer)v.getTag());
 		if(word.isActive()){
 			db.updateWordActive(word, 0);
-			((View)v.getParent()).findViewById(R.id.activate).setVisibility(View.VISIBLE);
-			((View)v.getParent()).findViewById(R.id.deactivate).setVisibility(View.GONE);
+//			((View)v.getParent()).findViewById(R.id.activate).setVisibility(View.VISIBLE);
+//			((View)v.getParent()).findViewById(R.id.deactivate).setVisibility(View.GONE);
+//			((View)v.getParent().getParent().getParent()).findViewById(R.id.word).setBackgroundResource(R.drawable.row_background_marked);
 		}else{
 			db.updateWordActive(word, 1);
-			((View)v.getParent()).findViewById(R.id.deactivate).setVisibility(View.VISIBLE);
-			((View)v.getParent()).findViewById(R.id.activate).setVisibility(View.GONE);
+//			((View)v.getParent()).findViewById(R.id.deactivate).setVisibility(View.VISIBLE);
+//			((View)v.getParent()).findViewById(R.id.activate).setVisibility(View.GONE);
+//			((View)v.getParent().getParent().getParent()).findViewById(R.id.word).setBackgroundResource(R.drawable.row_background);
 		}
+	    setLayout();
 	}
 	
 	private void addDictionary(){
@@ -403,9 +406,11 @@ public class ListFragment extends BaseFragment {
 			Util.setDefaultFont(testCount, context);
 
 			if(word.isActive()) {
+				view.setBackgroundResource(R.drawable.row_background);
 				find((ViewGroup)view,R.id.word).setBackgroundResource(R.drawable.row_background);
 				find((ViewGroup)view,R.id.rowDivider).setBackgroundColor(getResources().getColor(R.color.gray_2));
 			} else {
+				view.setBackgroundResource(R.drawable.row_background_marked);
 				find((ViewGroup)view,R.id.word).setBackgroundResource(R.drawable.row_background_marked);
 				find((ViewGroup)view,R.id.rowDivider).setBackgroundColor(getResources().getColor(R.color.white));
 			}
