@@ -1,20 +1,69 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     
-    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light">
-         <item name="actionBarStyle">@style/ActionBar</item>
+    <style name="Theme.Green" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="actionBarItemBackground">@drawable/selectable_background_green</item>
+        <item name="popupMenuStyle">@style/PopupMenu.Green</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Green</item>
+        <item name="actionBarTabStyle">@style/ActionBarTabStyle.Green</item>
+        <item name="actionDropDownStyle">@style/DropDownNav.Green</item>
+        <item name="actionBarStyle">@style/ActionBar.Solid.Green</item>
+        <item name="actionModeBackground">@drawable/cab_background_top_green</item>
+        <item name="actionModeSplitBackground">@drawable/cab_background_bottom_green</item>
+        <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Green</item>
+
+                <!-- Light.DarkActionBar specific -->
+        <item name="actionBarWidgetTheme">@style/Theme.Green.Widget</item>
+
     </style>
 
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="ActionBar.Solid.Green" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="background">@drawable/ab_solid_green</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_green</item>
+        <item name="backgroundSplit">@drawable/ab_bottom_solid_green</item>
+        <item name="progressBarStyle">@style/ProgressBar.Green</item>
+    </style>
+
+    <style name="ActionBar.Transparent.Green" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="background">@drawable/ab_transparent_green</item>
+        <item name="progressBarStyle">@style/ProgressBar.Green</item>
+    </style>
+	
+    <style name="PopupMenu.Green" parent="@style/Widget.AppCompat.PopupMenu">	
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_green</item>	
+    </style>
+	
+    <style name="DropDownListView.Green" parent="@style/Widget.AppCompat.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_green</item>
+    </style>
+
+    <style name="ActionBarTabStyle.Green" parent="@style/Widget.AppCompat.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_green</item>
+    </style>
+	
+    <style name="DropDownNav.Green" parent="@style/Widget.AppCompat.Spinner.DropDown.ActionBar">
+        <item name="android:background">@drawable/spinner_background_ab_green</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_green</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_green</item>
+    </style>
+    
+    <style name="ProgressBar.Green" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_green</item>
+    </style>
+    
+    <style name="ActionButton.CloseMode.Green" parent="@style/Widget.AppCompat.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_green</item>
+    </style>
+    
+    <!-- this style is only referenced in a Light.DarkActionBar based theme -->
+    <style name="Theme.Green.Widget" parent="@style/Theme.AppCompat">
+        <item name="popupMenuStyle">@style/PopupMenu.Green</item>
+        <item name="dropDownListViewStyle">@style/DropDownListView.Green</item>
+    </style>
+    
+    <style name="AppTheme" parent="@style/Theme.Green">
         <!--  <item name="android:fontFamily">assets/fonts/Bolide-Regular.ttf</item> -->
         <item name="android:textColor">@color/black</item>
     </style>
-    
-    <style name="ActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
-        <!--  
-        <item name="android:background">@color/redDark</item>
-        <item name="background">@color/redDark</item>
-        -->
-	</style>
     
     <style name="Fragment" parent="AppTheme">
         <item name="android:layout_width">match_parent</item>
@@ -29,19 +78,19 @@
     </style>
     
     <style name="EditTextAppTheme" parent="android:Widget.EditText">
-	    <item name="android:background">@drawable/edit_text_holo_light</item>
+		<item name="android:background">@drawable/green_edit_text_holo_light</item>
 	    <item name="android:textColor">@color/black</item>
 	</style>
 	
 	<style name="ButtonAppTheme" parent="android:Widget.Button">
-        <item name="android:background">@drawable/button_default_holo_light</item>
+	<item name="android:background">@drawable/green_btn_default_holo_light</item>
         <item name="android:minHeight">48dp</item>
         <item name="android:minWidth">64dp</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
     <style name="ImageButtonAppTheme" parent="android:Widget.ImageButton">
-        <item name="android:background">@drawable/button_default_holo_light</item>
+        <item name="android:background">@drawable/green_btn_default_holo_light</item>
     </style>
 
     <style name="AppButton" parent="ButtonAppTheme">
@@ -113,7 +162,7 @@
 	    <item name="android:layout_width">match_parent</item>
 	    <item name="android:layout_height">2dp</item>
 	    <item name="android:layout_alignParentBottom">true</item>
-	   	<item name="android:background">@color/redDark</item>
+	   	<item name="android:background">@color/primaryColor</item>
 	</style>
 	
 	<style name="Main">
@@ -129,25 +178,24 @@
         <item name="android:layout_weight">1</item>
 	</style>
     
-    <style name="Header" parent="AppBaseTheme">
+    <style name="Header" parent="AppTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:background">@color/redDark</item>
+        <item name="android:background">@color/primaryColor</item>
     </style>
     
 	<style name="HeaderApplication">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:background">@color/redDark</item>
+        <item name="android:background">@color/primaryColor</item>
     </style>
     
-   	<style name="HeaderApplicationBottomLine" parent="AppBaseTheme">
+   	<style name="HeaderApplicationBottomLine" parent="AppTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">2dp</item>
         <item name="android:layout_alignParentBottom">true</item>
-        <item name="android:background">@color/redDarkDarker</item>
     </style>
     
     <style name="HeaderTitle" parent="PaddedElement">
@@ -230,7 +278,7 @@
 	    <item name="android:layout_width">match_parent</item>
 	    <item name="android:layout_height">4dp</item>
 	    <item name="android:layout_alignParentBottom">true</item>
-	   	<item name="android:background">@color/redDark</item>
+	   	<item name="android:background">@color/primaryColor</item>
 	</style>	
 
 	<style name="HeaderDictionary" parent="PaddedElement">
@@ -617,11 +665,11 @@
 	</style>
 	
 	<style name="DividerHorizontalLeft" parent="DividerLineHorizontal">
-	    <item name="android:background">@color/redDarkDarker</item>
+<!-- 	<item name="android:background">@color/primaryColorDarker</item> -->
 	</style>
 	
 	<style name="DividerHorizontalRight" parent="DividerLineHorizontal">
-	    <item name="android:background">@color/redDarkLighter</item>
+	    <item name="android:background">@color/primaryColorLighter</item>
 	</style>
 	
 	<style name="DividerVertical" parent="AppTheme">
