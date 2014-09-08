@@ -11,6 +11,7 @@ import martinezmencias.app.wordbag.database.data.Word;
 import martinezmencias.app.wordbag.database.data.WordWithTranslations;
 import martinezmencias.app.wordbag.database.handler.DatabaseHandler;
 import martinezmencias.app.wordbag.util.Util;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ListActivity;
@@ -42,6 +43,7 @@ public class ListFragment extends BaseFragment {
 	private ListAdapter adapter;
 	private int visibleEditWordId;
 	private View lastVisibleEditWordRow;
+	private SetWordListAsyncTask mSetWordListAsyncTask;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,6 +59,12 @@ public class ListFragment extends BaseFragment {
 		initLayout();
 		setLayout();
 	}
+	
+   @Override
+    public void onStop(){
+        super.onStop();
+        cancelWordListAsyncTask();
+    }
 
 	public void initLayout(){
 		list = (ListView) find(R.id.list);
@@ -80,14 +88,7 @@ public class ListFragment extends BaseFragment {
 			find(R.id.noDictionariesMessage).setVisibility(View.GONE);
 			find(R.id.noWordsMessage).setVisibility(View.GONE);
 			find(R.id.firstWordMessage).setVisibility(View.GONE);
-			find(R.id.dictionariesEditionButton).setVisibility(View.VISIBLE);
-			((Main)getActivity()).updateDictionaryPreference();
-			find(R.id.dictionariesEditionButton).setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					toggleDictionariesList();
-				}
-			});
+			getMainActivity().updateActionBarTitle();
 			find(R.id.dictionariesEdition).setVisibility(View.GONE);
 			ArrayList<Dictionary> dictionaries = db.getAllDictionaries();
 			LayoutInflater inflater = (LayoutInflater) getActivity().getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -128,20 +129,10 @@ public class ListFragment extends BaseFragment {
 				}
 			}
 			
-			//Set list of words
-			words.clear();
-			ArrayList<WordWithTranslations> wordsWithTranslations = db.getAllWordsWithTranslationsFromDictionary(dictionaryPreference);
-			if(wordsWithTranslations.size() > 0) {
-				if(wordsWithTranslations.size() == 1){
-					find(R.id.firstWordMessage).setVisibility(View.VISIBLE);
-				}
-				words.addAll(wordsWithTranslations);
-			}else{
-				find(R.id.noWordsMessage).setVisibility(View.VISIBLE);
-			}
-			adapter.notifyDataSetChanged();
+			startSetWordListAsyncTask(dictionaryPreference);
 			
 			//Set alphabet scroll view
+			/*
 			if(words.size() > 0) {
 				find(R.id.alphabetButton).setVisibility(View.VISIBLE);
 				Util.setDefaultFontSerifBold(R.id.alphabetButton, getActivity());
@@ -155,6 +146,7 @@ public class ListFragment extends BaseFragment {
 			} else {
 				find(R.id.alphabetButton).setVisibility(View.GONE);
 			}
+			*/
 
 		} else {
 			//TODO No dictionary
@@ -176,6 +168,38 @@ public class ListFragment extends BaseFragment {
 			}
 		});
 	}
+	
+	private void startSetWordListAsyncTask(int dictionary) {
+	    cancelWordListAsyncTask();
+	    find(R.id.loading).setVisibility(View.VISIBLE);
+	    mSetWordListAsyncTask = new SetWordListAsyncTask();
+	    mSetWordListAsyncTask.execute(dictionary);
+	}
+	
+	private void cancelWordListAsyncTask() {
+	    if(mSetWordListAsyncTask != null && !mSetWordListAsyncTask.isCancelled()) {
+	        mSetWordListAsyncTask.cancel(true);
+	    }
+	}
+	
+	 private class SetWordListAsyncTask extends AsyncTask<Integer, Integer, ArrayList<WordWithTranslations>> {
+	     protected ArrayList<WordWithTranslations> doInBackground(Integer... dictionaryPreference) {
+	         return db.getAllWordsWithTranslationsFromDictionary(dictionaryPreference[0]);
+	     }
+	     protected void onPostExecute(ArrayList<WordWithTranslations> wordsWithTranslations) {
+              words.clear();
+	          if(wordsWithTranslations.size() > 0) {
+	                if(wordsWithTranslations.size() == 1){
+	                    find(R.id.firstWordMessage).setVisibility(View.VISIBLE);
+	                }
+	                words.addAll(wordsWithTranslations);
+	            }else{
+	                find(R.id.noWordsMessage).setVisibility(View.VISIBLE);
+	            }
+	            adapter.notifyDataSetChanged();
+	            find(R.id.loading).setVisibility(View.INVISIBLE);
+	     }
+	 }
 	
 	public void toggleDictionariesList(){
 		if(find(R.id.dictionariesEdition).getVisibility() == View.VISIBLE){
@@ -214,13 +238,16 @@ public class ListFragment extends BaseFragment {
 		Word word = db.getWordById((Integer)v.getTag());
 		if(word.isActive()){
 			db.updateWordActive(word, 0);
-			((View)v.getParent()).findViewById(R.id.activate).setVisibility(View.VISIBLE);
-			((View)v.getParent()).findViewById(R.id.deactivate).setVisibility(View.GONE);
+//			((View)v.getParent()).findViewById(R.id.activate).setVisibility(View.VISIBLE);
+//			((View)v.getParent()).findViewById(R.id.deactivate).setVisibility(View.GONE);
+//			((View)v.getParent().getParent().getParent()).findViewById(R.id.word).setBackgroundResource(R.drawable.row_background_marked);
 		}else{
 			db.updateWordActive(word, 1);
-			((View)v.getParent()).findViewById(R.id.deactivate).setVisibility(View.VISIBLE);
-			((View)v.getParent()).findViewById(R.id.activate).setVisibility(View.GONE);
+//			((View)v.getParent()).findViewById(R.id.deactivate).setVisibility(View.VISIBLE);
+//			((View)v.getParent()).findViewById(R.id.activate).setVisibility(View.GONE);
+//			((View)v.getParent().getParent().getParent()).findViewById(R.id.word).setBackgroundResource(R.drawable.row_background);
 		}
+	    setLayout();
 	}
 	
 	private void addDictionary(){
@@ -228,7 +255,7 @@ public class ListFragment extends BaseFragment {
 		Dictionary dictionary = new Dictionary(dictionaryName);
 		db.addDictionary(dictionary);
 		Util.setDictionaryIdPreference(dictionary.getID(), getActivity());
-		getMainActivity().updateDictionaryPreference();
+		getMainActivity().updateActionBarTitle();
 		setLayout();
 		Toast.makeText(getActivity().getBaseContext(), "Dicionary added: " +dictionary.getID() + " " +dictionary.getDictionaryName(), Toast.LENGTH_SHORT).show();
 	}
@@ -318,7 +345,8 @@ public class ListFragment extends BaseFragment {
 		viewRowWord.findViewById(R.id.wordEdition).setVisibility(View.VISIBLE);
 	}
 	
-	private void setAlphabet() {
+	public void showAlphabet() {
+	    find(R.id.listHeaderAlphabetContainer).setVisibility(View.VISIBLE);
 		list.setSelection(0);
 		final int dictionaryPreference = Util.getDictionaryIdPreference(getActivity());
 		ArrayList<String> characters = db.getDistinctInitialCharactersFromDictionary(dictionaryPreference);
@@ -378,9 +406,11 @@ public class ListFragment extends BaseFragment {
 			Util.setDefaultFont(testCount, context);
 
 			if(word.isActive()) {
+				view.setBackgroundResource(R.drawable.row_background);
 				find((ViewGroup)view,R.id.word).setBackgroundResource(R.drawable.row_background);
 				find((ViewGroup)view,R.id.rowDivider).setBackgroundColor(getResources().getColor(R.color.gray_2));
 			} else {
+				view.setBackgroundResource(R.drawable.row_background_marked);
 				find((ViewGroup)view,R.id.word).setBackgroundResource(R.drawable.row_background_marked);
 				find((ViewGroup)view,R.id.rowDivider).setBackgroundColor(getResources().getColor(R.color.white));
 			}

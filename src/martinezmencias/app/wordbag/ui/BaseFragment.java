@@ -1,6 +1,8 @@
 package martinezmencias.app.wordbag.ui;
 
 import martinezmencias.app.wordbag.R;
+import martinezmencias.app.wordbag.database.handler.DatabaseHandler;
+import martinezmencias.app.wordbag.util.Util;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.view.View;
@@ -17,6 +19,12 @@ public class BaseFragment extends Fragment {
 	protected View find(ViewGroup viewGroup, int id){
 		return viewGroup.findViewById(id);
 	}
+	
+   @Override
+    public void onStart(){
+        super.onStart();
+        find(R.id.loading).setVisibility(View.INVISIBLE);
+    }
 
 	@Override
 	public void onStop(){

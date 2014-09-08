@@ -2,6 +2,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/wordEdition"
     style="@style/EditWord">
+    <TextView
+	    android:id="@+id/translationsList"
+		style="@style/EditWordTranslations" />
     <LinearLayout
         style="@style/EditWordButtonContainer">
 	    <Button 
@@ -12,20 +15,17 @@
 		    android:id="@+id/deactivate"
 	    	android:text="@string/deactivate"
 	    	style="@style/EditButton"/>
-		<View
-	  	    style="@style/EditButtonDivider"/>
+<!-- 		<View
+	  	    style="@style/EditButtonDivider"/> -->
 		<Button 
 			android:id="@+id/edit"
 	    	android:text="@string/edit"
 	    	style="@style/EditButton" />
-		<View
-	  	    style="@style/EditButtonDivider"/>
+<!-- 		<View
+	  	    style="@style/EditButtonDivider"/> -->
 	  	<Button 
 	  	    android:id="@+id/delete"
 	    	android:text="@string/delete" 
 	    	style="@style/EditButton"/>
     </LinearLayout>
-	<TextView
-	    android:id="@+id/translationsList"
-		style="@style/EditWordTranslations" />
 </LinearLayout>

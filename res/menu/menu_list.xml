@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:wordbag="http://schemas.android.com/apk/res-auto" >
+    <item android:id="@+id/action_alphabet"
+          android:titleCondensed="abc"
+          android:title="@string/action_alphabet"
+          wordbag:showAsAction="ifRoom"  />
+    <item android:id="@+id/action_dictionaries"
+          android:icon="@drawable/dictionaries"
+          android:title="@string/action_dictionaries"
+          wordbag:showAsAction="ifRoom"  />
+</menu>

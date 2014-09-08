@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rowWord"
     style="@style/RowWord" >
     <LinearLayout
         android:id="@+id/word"

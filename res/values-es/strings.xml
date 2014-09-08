@@ -3,21 +3,23 @@
     <string name="app_name">WordBag</string>
     <string name="word">Palabra</string>
     <string name="translations">Traducciones</string>
-    <string name="ADD">AÑADIR</string>
-    <string name="LIST">LISTA</string>
-    <string name="TEST">TEST</string>
     <string name="add">Añadir</string>
     <string name="add_to_dictionary">Añadir al diccionario</string>
     <string name="select">Seleccionar</string>
     <string name="delete">Borrar</string>
-    <string name="activate">On</string>
-    <string name="deactivate">Off</string>
+    <string name="activate">Activar</string>
+    <string name="deactivate">Desactivar</string>
     <string name="edit">Editar</string>
     <string name="check">Comprobar traducción</string>
     <string name="alphabet">abc</string>
     <string name="add_new_dictionary">Añadir nuevo diccionario</string>
     <string name="show_right_answer">Ver correcta</string>
     <string name="next">Siguiente</string>
+    <string name="drawer_open">Abrir</string>
+    <string name="drawer_close">Cerrar</string>
+    <string name="action_remove">Borrar</string>
+    <string name="action_alphabet">Alfabeto</string>
+    <string name="action_dictionaries">Diccionarios</string>
     <string name="toast_test_success">¡Acertaste!</string>
     <string name="toast_test_fail">¡Fallaste!</string>
     <string name="toast_added_word">%1$s ha sido añadida al diccionario</string>
@@ -33,4 +35,10 @@
 	<string name="hint_new_dictionary">Diccionario (spa-eng, p.e.)</string>
 	<string name="description_dictionaries">Muestra la lista de diccionarios que actualmente tienes</string>
 	<string name="description_discard_new_word_data">Borrar datos</string>
+	<string-array
+        name="menu_items">
+     	<item>Test</item>
+     	<item>Lista</item>
+     	<item>Añadir</item>
+   	</string-array>
 </resources>
