@@ -25,12 +25,11 @@
     <string name="toast_added_word">%1$s ha sido añadida al diccionario</string>
     <string name="toast_add_no_word">El campo Palabra está vacío</string>
     <string name="toast_add_no_translations">No has añadido ninguna traducción. Introduce una y clica en el icono +</string>
-    <string name="message_no_dictionaries_list">Empieza añadiendo tu primer diccionario\n\nPor ejemplo: español-inglés, english-german, français-russie.\n\nTen en cuenta que el diccionario será unidireccional. Si creas un diccionario español-inglés, tendrás que crear también un diccionario inglés-español si lo necesitas.</string>
-    <string name="message_no_words_list">Todavía no tienes ninguna palabra en este diccionario.\n\nVe a AÑADIR y agrega alguna palabra al diccionario\n\nSi pulsas en la fila con el nombre del diccionario, abrirás el panel de edición, el cual permite añadir más diccionarios, eliminarlos o seleccionarlos.</string>
+    <string name="message_no_dictionaries_list">Empieza añadiendo tu primer diccionario.\n\nPor ejemplo: español-inglés, english-german, français-russie etc.\n\nPara ello, pulsa en el icono de la carpeta, arriba a la derecha.</string>
     <string name="message_first_word_list">Acabas de añadir tu primera palabra.\n\nSi añades más palabras, serán escogidas al azar en TEST y podrás testear si recuerdas al menos una de sus traducciones\n\nSi quieres excluir alguna palabra del test, pero quieres conservarla en la lista, puedes activarla o desactivarla mediante el botón On/Off del panel de edición de palabra (pulsa en el nombre de la palabra)</string>
     <string name="message_no_dictionaries_add">No tienes ningún diccionario todavía.\n\nVe a LISTA y añade un diccionario, después podrás agregarle palabras</string>
 	<string name="message_no_dictionaries_test">No tienes ningún diccionario todavía.\n\nVe a LISTA y añade un diccionario, después podrás agregarle palabras.</string>
-	<string name="message_no_words_test">No tienes ninguna palabra todavía en este diccionario.\n\nVe a AÑADIR y agrega alguna palabra\n\nDespués podrás testear si recuerdas sus traducciones.</string>
+	<string name="message_no_words">No tienes ninguna palabra todavía en este diccionario. Añade la primera, para ello:\n\nAbre el menú lateral pulsando arriba a la izquierda.\n\nPulsa en Añadir.\n\nIntroduce la palabra y sus traducciones y pulsa Añadir al diccionario.</string>
 	<string name="message_right_translations">Traducciones correctas: %1$s</string>
 	<string name="hint_new_dictionary">Diccionario (spa-eng, p.e.)</string>
 	<string name="description_dictionaries">Muestra la lista de diccionarios que actualmente tienes</string>

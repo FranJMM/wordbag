@@ -49,7 +49,7 @@
 	<TextView
         android:id="@+id/noWordsMessage"
         style="@style/Message"
-        android:text="@string/message_no_words_list" />
+        android:text="@string/message_no_words" />
 	<TextView
         android:id="@+id/firstWordMessage"
         style="@style/Message"

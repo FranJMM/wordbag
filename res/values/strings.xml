@@ -25,12 +25,11 @@
     <string name="toast_added_word">%1$s has been added to the dictionary</string>
     <string name="toast_add_no_word">Word field is empty.</string>
     <string name="toast_add_no_translations">You have not added any translation. Write one and click on + icon</string>
-    <string name="message_no_dictionaries_list">Start by adding your first dictionary.\n\nFor example: español-inglés, english-german, français-russie.\n\nTake into account that the dictionary will be unidirectional. If you create spanish-english, you will have to create english-spanish if you need it.</string>
-    <string name="message_no_words_list">You do not have any word yet in this dictionary.\n\nGo to ADD section and add some new word to the dictionary\n\nIf you click on the dictionary name row, you will open the edition panel, which allows you to select, create and remove dictionaries.</string>
+    <string name="message_no_dictionaries_list">Start by adding your first dictionary.\n\nFor example: español-inglés, english-german, français-russie etc.\n\n For this, click on the folder icon, at upper right corner.</string>
     <string name="message_first_word_list">You have just added your first word.\n\nIf you add more words, they will be picked at random in TEST section and you will check if you remember at least one translation\n\nIf you want to exclude some word from the TEST, but you want to keep it in the list, you can switch off the word by opening word edition panel (click on the row)</string>
     <string name="message_no_dictionaries_add">You do not have any dictionary yet.\n\nGo to LIST and add some new dictionary, then you will be able to add words to it.</string>
 	<string name="message_no_dictionaries_test">You do not have any dictionary yet.\n\nGo to LIST and add some new dictionary, then you will be able to add words to it.</string>
-	<string name="message_no_words_test">You do not have any word yet in this dictionary.\n\nGo to ADD and add some new word to the dictionary\n\nThen, you will be able to test if you remember its translations.</string>
+	<string name="message_no_words">You do not have any word in this dictionary yet. Add the first one, for that:\n\nOpen the navigation menu, clicking on the upper left corner.\n\nClick on Add\n\nType the word and its translations.\n\n</string>
 	<string name="message_right_translations">Right translations: %1$s</string>
 	<string name="hint_new_dictionary">Dictionary (spanish-english, e.g.)</string>
 	<string name="description_dictionaries">Shows the list of dictionaries you currently have</string>

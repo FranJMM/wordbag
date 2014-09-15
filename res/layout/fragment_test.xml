@@ -53,5 +53,5 @@
     <TextView
         android:id="@+id/testNoWordsMessage"
         style="@style/Message"
-        android:text="@string/message_no_words_test" />
+        android:text="@string/message_no_words" />
 </LinearLayout>

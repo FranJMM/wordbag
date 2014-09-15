@@ -149,9 +149,6 @@ public class ListFragment extends BaseFragment {
 			*/
 
 		} else {
-			//TODO No dictionary
-			find(R.id.alphabetButton).setVisibility(View.GONE);
-			find(R.id.dictionariesEdition).setVisibility(View.VISIBLE);
 			find(R.id.noDictionariesMessage).setVisibility(View.VISIBLE);
 			find(R.id.noWordsMessage).setVisibility(View.GONE);
 			Util.setDefaultFont(R.id.noDictionariesMessage, this);

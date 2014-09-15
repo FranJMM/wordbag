@@ -87,13 +87,13 @@ public class Main extends ActionBarActivity {
 		Util.setDefaultFontBold(R.id.navigation_tab_selector_3_text, this);
 		*/
 		
-		updateActionBarTitle();
-		
 		if(Util.getDictionaryIdPreference(this) > -1 ){
 			goToTest();
 		} else {
 			goToList();
 		}
+		
+		updateActionBarTitle();
 
 	}
 	
