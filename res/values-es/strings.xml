@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">WordBag</string>
-    <string name="word">Palabra</string>
-    <string name="translations">Traducciones</string>
+    <string name="word">PALABRA</string>
+    <string name="translations">TRADUCCIONES</string>
     <string name="add">Añadir</string>
     <string name="add_to_dictionary">Añadir al diccionario</string>
     <string name="select">Seleccionar</string>
@@ -12,7 +12,7 @@
     <string name="edit">Editar</string>
     <string name="check">Comprobar traducción</string>
     <string name="alphabet">abc</string>
-    <string name="add_new_dictionary">Añadir nuevo diccionario</string>
+    <string name="add_new_dictionary">AÑADIR NUEVO DICCIONARIO</string>
     <string name="show_right_answer">Ver correcta</string>
     <string name="next">Siguiente</string>
     <string name="drawer_open">Abrir</string>
