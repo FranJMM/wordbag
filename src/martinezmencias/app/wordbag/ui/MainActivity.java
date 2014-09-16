@@ -24,7 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class Main extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity {
     
     private static final int FRAGMENT_TEST = 0;
     private static final int FRAGMENT_LIST = 1;

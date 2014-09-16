@@ -268,7 +268,7 @@ public class ListFragment extends BaseFragment {
 	}
 	
 	private void editWord(View v){
-		((Main)getActivity()).goToAdd((Integer)v.getTag());
+		((MainActivity)getActivity()).goToAdd((Integer)v.getTag());
 	}
 	
 	private void deleteWord(View v){

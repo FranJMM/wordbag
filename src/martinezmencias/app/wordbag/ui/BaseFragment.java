@@ -45,7 +45,7 @@ public class BaseFragment extends Fragment {
 		}
 	}
 	
-	protected Main getMainActivity(){
-		return (Main)getActivity();
+	protected MainActivity getMainActivity(){
+		return (MainActivity)getActivity();
 	}
 }
