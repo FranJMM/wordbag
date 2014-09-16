@@ -119,6 +119,11 @@ public class MainActivity extends ActionBarActivity {
             break;
         case FRAGMENT_LIST:
             inflater.inflate(R.menu.menu_list, menu);
+            if(db.getAllWordsFromDictionary(Util.getDictionaryIdPreference(this)).size() > 0) {
+            	menu.findItem(R.id.action_alphabet).setVisible(true);
+            } else {
+            	menu.findItem(R.id.action_alphabet).setVisible(false);
+            }
            break;
         case FRAGMENT_ADD:
             inflater.inflate(R.menu.menu_add, menu);

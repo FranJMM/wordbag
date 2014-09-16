@@ -130,23 +130,6 @@ public class ListFragment extends BaseFragment {
 			}
 			
 			startSetWordListAsyncTask(dictionaryPreference);
-			
-			//Set alphabet scroll view
-			/*
-			if(words.size() > 0) {
-				find(R.id.alphabetButton).setVisibility(View.VISIBLE);
-				Util.setDefaultFontSerifBold(R.id.alphabetButton, getActivity());
-				find(R.id.alphabetButton).setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						find(R.id.listHeaderAlphabetContainer).setVisibility(View.VISIBLE);
-						setAlphabet();
-					}
-				});
-			} else {
-				find(R.id.alphabetButton).setVisibility(View.GONE);
-			}
-			*/
 
 		} else {
 			find(R.id.noDictionariesMessage).setVisibility(View.VISIBLE);
@@ -273,6 +256,7 @@ public class ListFragment extends BaseFragment {
 	
 	private void deleteWord(View v){
 		db.deleteWord((Integer)v.getTag());
+		getActivity().supportInvalidateOptionsMenu();
 		setLayout();
 	}
 	
