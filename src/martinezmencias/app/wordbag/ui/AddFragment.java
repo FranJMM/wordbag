@@ -58,7 +58,7 @@ public class AddFragment extends BaseFragment {
 				for(int i=0; i < wordWithTranslations.getTranslations().size(); i++){
 					addTranslation(wordWithTranslations.getTranslations().get(i).getTranslationName());
 				}
-				((Button)find(R.id.addWordWithTranslations)).setText("Update");
+				((Button)find(R.id.addWordWithTranslations)).setText(getResources().getString(R.string.update));
 			}
 			Util.setDefaultFontBold((TextView)find(R.id.wordTitle), getActivity().getBaseContext());
 			Util.setDefaultFont((TextView)find(R.id.word), getActivity().getBaseContext());

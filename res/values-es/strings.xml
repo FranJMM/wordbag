@@ -4,6 +4,7 @@
     <string name="word">PALABRA</string>
     <string name="translations">TRADUCCIONES</string>
     <string name="add">Añadir</string>
+    <string name="update">Actualizar</string>
     <string name="add_to_dictionary">Añadir al diccionario</string>
     <string name="select">Seleccionar</string>
     <string name="delete">Borrar</string>
