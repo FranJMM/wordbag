@@ -76,16 +76,9 @@ public class MainActivity extends ActionBarActivity {
         // Set the list's click listener
         drawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-		
 		db = new DatabaseHandler(this);
 		
 		//TODO Set font of action bar and drawer list items
-		/*
-		Util.setDefaultFont(R.id.headerTitle, this);
-		Util.setDefaultFontBold(R.id.navigation_tab_selector_1_text, this);
-		Util.setDefaultFontBold(R.id.navigation_tab_selector_2_text, this);
-		Util.setDefaultFontBold(R.id.navigation_tab_selector_3_text, this);
-		*/
 		
 		if(Util.getDictionaryIdPreference(this) > -1 ){
 			goToTest();
