@@ -44,6 +44,7 @@ public class ListFragment extends BaseFragment {
 	private int visibleEditWordId;
 	private View lastVisibleEditWordRow;
 	private SetWordListAsyncTask mSetWordListAsyncTask;
+	private boolean alphabetVisible;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -230,6 +231,14 @@ public class ListFragment extends BaseFragment {
 	    setLayout();
 	}
 	
+	public void toggleAlphabet() {
+		if(alphabetVisible) {
+			hideAlphabet();
+		}else{
+			showAlphabet();
+		}
+	}
+	
 	private void addDictionary(){
 		String dictionaryName = ((EditText)find(R.id.dictionariesEdition).findViewById(R.id.addDictionaryEditText)).getText().toString();
 		Dictionary dictionary = new Dictionary(dictionaryName);
@@ -347,6 +356,12 @@ public class ListFragment extends BaseFragment {
 			});
 			alphabetLayout.addView(characterLayout);
 		}
+		alphabetVisible = true;
+	}
+	
+	public void  hideAlphabet() {
+		find(R.id.listHeaderAlphabetContainer).setVisibility(View.GONE);
+		alphabetVisible = false;
 	}
 
 	public class ListAdapter extends ArrayAdapter<WordWithTranslations> {

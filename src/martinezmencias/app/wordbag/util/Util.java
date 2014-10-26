@@ -24,6 +24,17 @@ public class Util {
 		editor.commit();
 	}
 	
+	public static boolean splashHasBeenShown(Activity activity) {
+		SharedPreferences settings = activity.getSharedPreferences("data", Context.MODE_PRIVATE);
+		return settings.getBoolean("splashShown", false);
+	}
+	
+	public static void setSplashShown(Activity activity) {
+		SharedPreferences.Editor editor = activity.getSharedPreferences("data", Context.MODE_PRIVATE).edit();
+		editor.putBoolean("splashShown", true);
+		editor.commit();
+	}
+	
 	public static void setFont(String font, TextView textView, Context context){
 		textView.setTypeface(Typeface.createFromAsset(context.getAssets(), font));  
 	}

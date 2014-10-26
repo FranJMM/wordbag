@@ -688,5 +688,39 @@
 	<style name="DividerVerticalLower" parent="DividerLineVertical">
 	    <item name="android:background">@color/white</item>
 	</style>
+	
+	<style name="Splash" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	    <item name="android:layout_height">match_parent</item>
+	    <item name="android:background">@color/primaryColor</item>
+	    <item name="android:orientation">vertical</item>
+	    <item name="android:gravity">center</item>
+	</style>
+	
+	<style name="SplashTitle" parent="AppTheme">
+	   	<item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:textSize">48dp</item>
+	    <item name="android:textColor">@color/white</item>
+	    <item name="android:text">@string/app_name</item>
+	</style>
+	
+	<style name="SplashWelcome" parent="PaddedElement">
+	   	<item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:paddingTop">50dp</item>
+	    <item name="android:textSize">16dp</item>
+	    <item name="android:textColor">@color/white</item>
+	    <item name="android:text">@string/message_welcome</item>
+	</style>
+	
+	<style name="SplashClickHere" parent="PaddedElement">
+	   	<item name="android:layout_width">wrap_content</item>
+	    <item name="android:layout_height">wrap_content</item>
+	    <item name="android:paddingTop">25dp</item>
+	    <item name="android:textSize">16dp</item>
+	    <item name="android:textColor">@color/white</item>
+	    <item name="android:text">@string/message_click_here_to_start</item>
+	</style>
 
 </resources>

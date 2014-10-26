@@ -32,6 +32,8 @@
 	<string name="message_no_dictionaries_test">You do not have any dictionary yet.\n\nGo to LIST and add some new dictionary, then you will be able to add words to it.</string>
 	<string name="message_no_words">You do not have any word in this dictionary yet. Add the first one, for that:\n\nOpen the navigation menu, clicking on the upper left corner.\n\nClick on Add\n\nType the word and its translations.\n\n</string>
 	<string name="message_right_translations">Right translations: %1$s</string>
+	<string name="message_welcome">Write down words from thee foreign language that you are learning, then practise in order to remember them. \n\nThe most simple, direct and easy way, without further additions.</string>
+	<string name="message_click_here_to_start">Click here to start</string>
 	<string name="hint_new_dictionary">Dictionary (spanish-english, e.g.)</string>
 	<string name="description_dictionaries">Shows the list of dictionaries you currently have</string>
 	<string name="description_discard_new_word_data">Discard new word data</string>

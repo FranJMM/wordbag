@@ -32,6 +32,8 @@
 	<string name="message_no_dictionaries_test">No tienes ningún diccionario todavía.\n\nVe a LISTA y añade un diccionario, después podrás agregarle palabras.</string>
 	<string name="message_no_words">No tienes ninguna palabra todavía en este diccionario. Añade la primera, para ello:\n\nAbre el menú lateral pulsando arriba a la izquierda.\n\nPulsa en Añadir.\n\nIntroduce la palabra y sus traducciones y pulsa Añadir al diccionario.</string>
 	<string name="message_right_translations">Traducciones correctas: %1$s</string>
+	<string name="message_welcome">Guarda palabras del idioma extranjero que aprendes y su traducción, luego practica para recordarlas. \n\nDe forma sencilla, directa y fácil, sin más añadidos.</string>
+	<string name="message_click_here_to_start">Pulsa aquí para empezar</string>
 	<string name="hint_new_dictionary">Diccionario (spa-eng, p.e.)</string>
 	<string name="description_dictionaries">Muestra la lista de diccionarios que actualmente tienes</string>
 	<string name="description_discard_new_word_data">Borrar datos</string>

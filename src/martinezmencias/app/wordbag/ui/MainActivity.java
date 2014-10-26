@@ -5,6 +5,7 @@ import org.w3c.dom.Text;
 import martinezmencias.app.wordbag.R;
 import martinezmencias.app.wordbag.database.handler.DatabaseHandler;
 import martinezmencias.app.wordbag.util.Util;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -41,6 +42,7 @@ public class MainActivity extends ActionBarActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_main);
 		
 		String[] menuItems = getResources().getStringArray(R.array.menu_items);
@@ -87,7 +89,6 @@ public class MainActivity extends ActionBarActivity {
 		}
 		
 		updateActionBarTitle();
-
 	}
 	
     @Override
@@ -140,7 +141,7 @@ public class MainActivity extends ActionBarActivity {
                ((AddFragment) mFragment).clearAddForm();
                return true;
            case R.id.action_alphabet:
-               ((ListFragment) mFragment).showAlphabet();
+               ((ListFragment) mFragment).toggleAlphabet();
                return true;
            case R.id.action_dictionaries:
                ((ListFragment) mFragment).toggleDictionariesList();
