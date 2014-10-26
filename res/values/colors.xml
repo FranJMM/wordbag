@@ -3,7 +3,8 @@
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-	<color name="primaryColor">#008B45</color> <!-- Spring Green -->
+    <color name="red">#FF0000</color>
+	<color name="primaryColor">#008B45</color> <!-- Spring Green RGB: 0, 139, 69-->
     <color name="primaryColorLighter">#99ffaf</color> <!-- Spring Green Dim -->
   
     <color name="gray_1">#333333</color><!-- Brightness: 31% -->

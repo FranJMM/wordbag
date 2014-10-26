@@ -1,0 +1,24 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <style name="Theme.Green" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_green</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Green</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Green</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Green</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Green</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Green</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_green</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_green</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Green</item>
+        <!-- Light.DarkActionBar specific -->
+        <item name="android:actionBarWidgetTheme">@style/Theme.Green.Widget</item>
+    </style>
+
+    <style name="ActionBar.Solid.Green" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@drawable/ab_solid_green</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_green</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_green</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Green</item>
+    </style>
+
+</resources>

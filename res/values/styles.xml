@@ -10,10 +10,8 @@
         <item name="actionModeBackground">@drawable/cab_background_top_green</item>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_green</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Green</item>
-
-                <!-- Light.DarkActionBar specific -->
+        <!-- Light.DarkActionBar specific -->
         <item name="actionBarWidgetTheme">@style/Theme.Green.Widget</item>
-
     </style>
 
     <style name="ActionBar.Solid.Green" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
@@ -69,7 +67,7 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:background">@drawable/app_background</item>
+        <item name="android:background">@color/white</item>
     </style>
     
     <style name="PaddedElement" parent="AppTheme">
