@@ -11,7 +11,7 @@
     <string name="activate">Activate</string>
     <string name="deactivate">Deactivate</string>
     <string name="edit">Edit</string>
-    <string name="check">Check translation</string>
+    <string name="check">Check</string>
     <string name="alphabet">abc</string>
     <string name="add_new_dictionary">ADD NEW DICTIONARY</string>
     <string name="show_right_answer">Show right answer</string>
@@ -35,6 +35,7 @@
 	<string name="message_welcome">Write down words from thee foreign language that you are learning, then practise in order to remember them. \n\nThe most simple, direct and easy way, without further additions.</string>
 	<string name="message_click_here_to_start">Click here to start</string>
 	<string name="hint_new_dictionary">Dictionary (spanish-english, e.g.)</string>
+	<string name="hint_test_answer">Translation?</string>
 	<string name="description_dictionaries">Shows the list of dictionaries you currently have</string>
 	<string name="description_discard_new_word_data">Discard new word data</string>
     <string-array

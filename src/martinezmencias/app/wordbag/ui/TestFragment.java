@@ -20,9 +20,13 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.TextView.OnEditorActionListener;
@@ -30,10 +34,24 @@ import android.widget.TextView.OnEditorActionListener;
 public class TestFragment extends BaseFragment { 
 	
 	private String Tag = "Test";
+	
+	private enum State {QUESTION, RESOLVED};
+	
 	private DatabaseHandler db;
 	private int dictionaryIdPreference;
+	private State state = State.QUESTION;
+	private ArrayList<Word> words;
+	private int selectedWordIndex = -1;
 	
-	private Word word;
+	private View questionContainerView;
+	private TextView questionTextView;
+	private TextView questionRightAnswersTextView;
+	private View userAnswerContainer;
+	private EditText userAnswerEditText;
+	private Button checkButton;
+	
+	private Animation animationMoveIn;
+	private Animation animationMoveOut;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,27 +68,28 @@ public class TestFragment extends BaseFragment {
 	
 	private void setLayout(){
 		if(dictionaryIdPreference > -1){
-			find(R.id.testLayout).setVisibility(View.VISIBLE);
 			find(R.id.testNoDictionariesMessage).setVisibility(View.GONE);
 			find(R.id.testNoWordsMessage).setVisibility(View.GONE);
-			Util.setDefaultFont(R.id.check, getActivity());
-			ArrayList<Word> words = db.getAllActiveWordsFromDictionary(dictionaryIdPreference);
+			questionContainerView = find(R.id.questionContainer);
+			questionTextView = (TextView) find(R.id.question);
+			questionRightAnswersTextView = (TextView) find(R.id.questionRightAnswers);
+			userAnswerContainer = find(R.id.testAnswerContainer);
+			userAnswerEditText = (EditText) find(R.id.answer);
+			checkButton = (Button) find(R.id.check);
+			Util.setDefaultFont(R.id.check, getActivity());	
+			Util.setFont(Util.DEFAULT_FONT_SERIF_BOLD, questionTextView, getActivity().getBaseContext());
+			words = db.getAllActiveWordsFromDictionary(dictionaryIdPreference);
 			if(words.size() > 0){
-				word = words.get((int)(Math.random()*words.size()));
-				TextView question = (TextView) find(R.id.question);
-				question.setText(word.getWordName());
-				Util.setFont(Util.DEFAULT_FONT_SERIF_BOLD, question, getActivity().getBaseContext());
-				EditText answer = (EditText) find(R.id.answer);
-				Util.setFont(Util.DEFAULT_FONT_SERIF_BOLD, answer, getActivity().getBaseContext());
-				answer.requestFocus();
-				showKeyboard(answer);
+				Util.setFont(Util.DEFAULT_FONT_SERIF_BOLD, userAnswerEditText, getActivity().getBaseContext());
+				userAnswerEditText.requestFocus();
+				showKeyboard(userAnswerEditText);
 				find(R.id.check).setOnClickListener(new View.OnClickListener() {
 					@Override
 					public void onClick(View v) {
 						check();
 					}
 				});
-				answer.setOnEditorActionListener(new OnEditorActionListener() {
+				userAnswerEditText.setOnEditorActionListener(new OnEditorActionListener() {
 				    @Override
 				    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 				        if (actionId == EditorInfo.IME_ACTION_DONE) {
@@ -82,6 +101,44 @@ public class TestFragment extends BaseFragment {
 				        }
 				    }
 				});
+				animationMoveOut = AnimationUtils.loadAnimation(getActivity(), R.anim.move_out);
+				animationMoveOut.setAnimationListener(new Animation.AnimationListener() {
+					
+					@Override
+					public void onAnimationStart(Animation animation) {
+						// Do nothing
+					}
+					
+					@Override
+					public void onAnimationRepeat(Animation animation) {
+						// Do nothing
+					}
+					
+					@Override
+					public void onAnimationEnd(Animation animation) {
+						setQuestion();
+						questionContainerView.startAnimation(animationMoveIn);
+					}
+				});
+				animationMoveIn = AnimationUtils.loadAnimation(getActivity(), R.anim.move_in);
+				animationMoveIn.setAnimationListener(new Animation.AnimationListener() {
+					
+					@Override
+					public void onAnimationStart(Animation animation) {
+						// Do nothing
+					}
+					
+					@Override
+					public void onAnimationRepeat(Animation animation) {
+						// Do nothing
+					}
+					
+					@Override
+					public void onAnimationEnd(Animation animation) {
+						userAnswerEditText.setText("");
+					}
+				});
+				setQuestion();
 			}else{
 				find(R.id.testLayout).setVisibility(View.GONE);
 				find(R.id.testNoDictionariesMessage).setVisibility(View.GONE);
@@ -95,49 +152,33 @@ public class TestFragment extends BaseFragment {
 	}
 	
 	public void check(){
-			String answer = ((TextView)(find(R.id.answer))).getText().toString();
-			boolean success = db.checkTranslation(word, answer);
+		if (state == State.QUESTION) {
+			String answer = userAnswerEditText.getText().toString();
+			boolean success = db.checkTranslation(words.get(selectedWordIndex), answer);
+			questionRightAnswersTextView.setVisibility(View.VISIBLE);
+			checkButton.setText(getActivity().getResources().getString(R.string.next));
 			if(success) {
-				String text = success ? getString(R.string.toast_test_success) : getString(R.string.toast_test_fail);
-				Toast.makeText(getActivity().getBaseContext(), text, Toast.LENGTH_SHORT).show();
-				nextQuestion();
+				userAnswerContainer.setBackgroundResource(R.color.primaryColorLighter);
 			} else {
-				hideKeyboard();
-				find(R.id.showRightAnswer).setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						showRightAnswer();
-					}
-				});
-				find(R.id.nextQuestion).setOnClickListener(new View.OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						nextQuestion();
-					}
-				});
-				Util.setDefaultFont(R.id.testResultMessage, getActivity());
-				((TextView)find(R.id.testResultMessage)).setText(answer);
-				find(R.id.answer).setVisibility(View.GONE);
-				find(R.id.check).setVisibility(View.GONE);
-				find(R.id.testResultLayout).setVisibility(View.VISIBLE);
-				find(R.id.testButtonsResultContainer).setVisibility(View.VISIBLE);
+				userAnswerContainer.setBackgroundResource(R.color.redLighter);
 			}
-	}
-	
-	public void showRightAnswer() {
-		hideKeyboard();
-		ArrayList<Translation> translations = db.getAllTranslationsFromWord(word.getID());
-		TextView testFailMessage = (TextView) find(R.id.testResultMessage);
-		testFailMessage.setText(translations.get(0).getTranslationName());
-		for(int i = 1; i < translations.size(); i++){
-			testFailMessage.setText(testFailMessage.getText() + ", "+translations.get(i).getTranslationName());
+			state = State.RESOLVED;
+		} else if (state == State.RESOLVED){
+			state = State.QUESTION;
+			questionContainerView.startAnimation(animationMoveOut);
 		}
-		find(R.id.showRightAnswer).setVisibility(View.GONE);
-		((ImageView)find(R.id.testResultIcon)).setImageResource(R.drawable.test_good);
-		
 	}
 	
-	public void nextQuestion() {
-		getMainActivity().goToTest();
+	public void setQuestion() {
+		selectedWordIndex = (int)(Math.random()*words.size());
+		questionTextView.setText(words.get(selectedWordIndex).getWordName());
+		ArrayList<Translation> translations = db.getAllTranslationsFromWord(words.get(selectedWordIndex).getID());
+		questionRightAnswersTextView.setText(translations.get(0).getTranslationName());
+		for(int i = 1; i < translations.size(); i++){
+			questionRightAnswersTextView.setText(questionRightAnswersTextView.getText() + ", "+translations.get(i).getTranslationName());
+		}
+		questionRightAnswersTextView.setVisibility(View.INVISIBLE);
+		userAnswerContainer.setBackgroundResource(R.color.white);
+		checkButton.setText(getActivity().getResources().getString(R.string.check));
 	}
 }

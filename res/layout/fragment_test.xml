@@ -5,9 +5,16 @@
     <LinearLayout
         android:id="@+id/testLayout"
 		style="@style/TestLayout">
-	    <TextView
-	        android:id="@+id/question"
-	        style="@style/TestQuestion"/>
+		<LinearLayout
+		    	android:id="@+id/questionContainer"
+		        style="@style/TestQuestionContainer">
+			<TextView
+		        android:id="@+id/question"
+		        style="@style/TestQuestion"/>
+			<TextView
+		        android:id="@+id/questionRightAnswers"
+		        style="@style/TestQuestionRightAnswers" />
+		</LinearLayout>
 	   	<LinearLayout
 	   	    android:id="@+id/testAnswerContainer"
  			style="@style/TestAnswerContainer">

@@ -568,10 +568,18 @@
 	   	<item name="android:gravity">center_horizontal</item>
 	</style>
 	
-	<style name="TestQuestion" parent="AppTheme">
+	<style name="TestQuestionContainer" parent="AppTheme">
 	   	<item name="android:layout_width">match_parent</item>
 	   	<item name="android:layout_height">0dp</item>
-	   	<item name="android:layout_weight">0.3</item>
+	   	<item name="android:layout_weight">0.4</item>
+	   	<item name="android:orientation">vertical</item>
+	   	<item name="android:gravity">center</item>
+	   	<item name="android:background">@drawable/drop_shadow</item>
+	</style>
+	
+	<style name="TestQuestion" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">wrap_content</item>
 	   	<item name="android:gravity">center</item>
 	   	<item name="android:textSize">30sp</item>
 	   	<item name="android:typeface">serif</item>
@@ -579,10 +587,19 @@
 	   	<item name="android:textColor">@color/black</item>
 	</style>
 	
+	<style name="TestQuestionRightAnswers" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">wrap_content</item>
+	   	<item name="android:gravity">center</item>
+	   	<item name="android:textSize">12sp</item>
+	   	<item name="android:typeface">serif</item>
+	   	<item name="android:textColor">@color/black</item>
+	</style>
+	
 	<style name="TestAnswerContainer" parent="AppTheme">
 	   	<item name="android:layout_width">match_parent</item>
 	   	<item name="android:layout_height">0dp</item>
-	   	<item name="android:layout_weight">0.4</item>
+	   	<item name="android:layout_weight">0.3</item>
 	   	<item name="android:gravity">center</item>
 	</style>
 	
@@ -594,6 +611,7 @@
 	   	<item name="android:autoLink">none</item>
 	   	<item name="android:singleLine">true</item>
 	   	<item name="android:visibility">visible</item>
+	   	<item name="android:hint">@string/hint_test_answer</item>
 	</style>
 	
 	<style name="TestButtonContainer" parent="AppTheme">

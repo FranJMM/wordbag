@@ -6,6 +6,7 @@
     <color name="red">#FF0000</color>
 	<color name="primaryColor">#008B45</color> <!-- Spring Green RGB: 0, 139, 69-->
     <color name="primaryColorLighter">#99ffaf</color> <!-- Spring Green Dim -->
+    <color name="redLighter">#ff99A5</color> <!-- Red Light -->
   
     <color name="gray_1">#333333</color><!-- Brightness: 31% -->
     <color name="gray_2">#cccccc</color><!-- Brightness: 80% -->
