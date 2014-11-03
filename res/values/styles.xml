@@ -574,6 +574,14 @@
 	   	<item name="android:layout_weight">0.4</item>
 	   	<item name="android:orientation">vertical</item>
 	   	<item name="android:gravity">center</item>
+	</style>
+	
+	<style name="TestQuestionCard" parent="AppTheme">
+	   	<item name="android:layout_width">match_parent</item>
+	   	<item name="android:layout_height">match_parent</item>
+	   	<item name="android:layout_marginTop">20dp</item>
+	   	<item name="android:orientation">vertical</item>
+	   	<item name="android:gravity">center</item>
 	   	<item name="android:background">@drawable/drop_shadow</item>
 	</style>
 	

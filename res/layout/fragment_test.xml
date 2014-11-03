@@ -8,12 +8,16 @@
 		<LinearLayout
 		    	android:id="@+id/questionContainer"
 		        style="@style/TestQuestionContainer">
-			<TextView
-		        android:id="@+id/question"
-		        style="@style/TestQuestion"/>
-			<TextView
-		        android:id="@+id/questionRightAnswers"
-		        style="@style/TestQuestionRightAnswers" />
+		        <LinearLayout
+		            android:id="@+id/questionCard"
+		        	style="@style/TestQuestionCard">
+		            <TextView
+		        	android:id="@+id/question"
+		        	style="@style/TestQuestion"/>
+					<TextView
+		        	android:id="@+id/questionRightAnswers"
+		        	style="@style/TestQuestionRightAnswers" />
+		        </LinearLayout>
 		</LinearLayout>
 	   	<LinearLayout
 	   	    android:id="@+id/testAnswerContainer"
@@ -22,16 +26,6 @@
 		        android:id="@+id/answer"
 		        style="@style/TestAnswer">
 	    	</EditText>
-	    	<LinearLayout 
-		        android:id="@+id/testResultLayout"
-		        style="@style/TestResultLayout">
-			    <ImageView 
-			        android:id="@+id/testResultIcon"
-			        style="@style/TestResultImage"/>
-		       	<TextView
-			        android:id="@+id/testResultMessage"
-			        style="@style/TestResultMessage"/>
-	    </LinearLayout>
 	    </LinearLayout>
 	    <LinearLayout
  			style="@style/TestButtonContainer">
@@ -39,18 +33,6 @@
 		        android:id="@+id/check"
 		        android:text="@string/check"
 		        style="@style/TestCheckButton"/>
-		    <LinearLayout
-		        android:id="@+id/testButtonsResultContainer"
-		        style="@style/TestButtonsResultContainer">
-		        <Button
-			        android:id="@+id/showRightAnswer"
-			        android:text="@string/show_right_answer"
-			        style="@style/TestShowRightAnswerButton"/>
-		        <Button
-			        android:id="@+id/nextQuestion"
-			        android:text="@string/next"
-			        style="@style/TestButtonNextQuestion"/>
-		    </LinearLayout>
 	    </LinearLayout>
     </LinearLayout>
     <TextView
