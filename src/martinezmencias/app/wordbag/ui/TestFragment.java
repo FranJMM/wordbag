@@ -13,6 +13,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.TransitionDrawable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -158,10 +159,12 @@ public class TestFragment extends BaseFragment {
 			questionRightAnswersTextView.setVisibility(View.VISIBLE);
 			checkButton.setText(getActivity().getResources().getString(R.string.next));
 			if(success) {
-				userAnswerContainer.setBackgroundResource(R.color.primaryColorLighter);
+				userAnswerContainer.setBackgroundResource(R.drawable.white_to_green_background);
 			} else {
-				userAnswerContainer.setBackgroundResource(R.color.redLighter);
+				userAnswerContainer.setBackgroundResource(R.drawable.white_to_red_background);
 			}
+			TransitionDrawable transition = (TransitionDrawable) userAnswerContainer.getBackground();
+			transition.startTransition(200);
 			state = State.RESOLVED;
 		} else if (state == State.RESOLVED){
 			state = State.QUESTION;
