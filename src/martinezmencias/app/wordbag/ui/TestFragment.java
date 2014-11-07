@@ -48,6 +48,7 @@ public class TestFragment extends BaseFragment {
 	private TextView questionTextView;
 	private TextView questionRightAnswersTextView;
 	private View userAnswerContainer;
+	private View userAnswerBackground;
 	private EditText userAnswerEditText;
 	private Button checkButton;
 	
@@ -75,6 +76,7 @@ public class TestFragment extends BaseFragment {
 			questionTextView = (TextView) find(R.id.question);
 			questionRightAnswersTextView = (TextView) find(R.id.questionRightAnswers);
 			userAnswerContainer = find(R.id.testAnswerContainer);
+			userAnswerBackground = find(R.id.testAnswerBackground);
 			userAnswerEditText = (EditText) find(R.id.answer);
 			checkButton = (Button) find(R.id.check);
 			Util.setDefaultFont(R.id.check, getActivity());	
@@ -159,11 +161,11 @@ public class TestFragment extends BaseFragment {
 			questionRightAnswersTextView.setVisibility(View.VISIBLE);
 			checkButton.setText(getActivity().getResources().getString(R.string.next));
 			if(success) {
-				userAnswerContainer.setBackgroundResource(R.drawable.white_to_green_background);
+				userAnswerBackground.setBackgroundResource(R.drawable.gray_to_green_background);
 			} else {
-				userAnswerContainer.setBackgroundResource(R.drawable.white_to_red_background);
+				userAnswerBackground.setBackgroundResource(R.drawable.gray_to_red_background);
 			}
-			TransitionDrawable transition = (TransitionDrawable) userAnswerContainer.getBackground();
+			TransitionDrawable transition = (TransitionDrawable) userAnswerBackground.getBackground();
 			transition.startTransition(200);
 			state = State.RESOLVED;
 		} else if (state == State.RESOLVED){
@@ -181,7 +183,7 @@ public class TestFragment extends BaseFragment {
 			questionRightAnswersTextView.setText(questionRightAnswersTextView.getText() + ", "+translations.get(i).getTranslationName());
 		}
 		questionRightAnswersTextView.setVisibility(View.INVISIBLE);
-		userAnswerContainer.setBackgroundResource(R.color.white);
+		userAnswerBackground.setBackgroundResource(R.color.gray_4);
 		checkButton.setText(getActivity().getResources().getString(R.string.check));
 	}
 }

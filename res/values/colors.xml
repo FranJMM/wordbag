@@ -10,8 +10,9 @@
   
     <color name="gray_1">#333333</color><!-- Brightness: 31% -->
     <color name="gray_2">#cccccc</color><!-- Brightness: 80% -->
-    <color name="gray_3">#e5e5e5</color><!-- Brightness: 90% -->
+    <color name="gray_3">#dbdbdb</color><!-- Brightness: 86% -->
     <color name="gray_4">#eeeeee</color><!-- Brightness: 93% -->
+
     
 </resources>
 <!-- beige #dab68f  -->

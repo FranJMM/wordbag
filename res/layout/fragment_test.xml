@@ -19,14 +19,21 @@
 		        	style="@style/TestQuestionRightAnswers" />
 		        </LinearLayout>
 		</LinearLayout>
-	   	<LinearLayout
+		<View 
+	    	android:id="@+id/testDivider"
+		    style="@style/TestDivider"/>
+		<!-- TestAnswerBackground is a workaround for displaying properly edit text's bkg. -->
+	   	<RelativeLayout
 	   	    android:id="@+id/testAnswerContainer"
  			style="@style/TestAnswerContainer">
+		    <View 
+		    	android:id="@+id/testAnswerBackground"
+ 				style="@style/TestAnswerBackground"/>
 		    <EditText
 		        android:id="@+id/answer"
 		        style="@style/TestAnswer">
 	    	</EditText>
-	    </LinearLayout>
+	    </RelativeLayout>
 	    <LinearLayout
  			style="@style/TestButtonContainer">
 		    <Button
