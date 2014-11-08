@@ -13,6 +13,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="martinezmencias.app.wordbag.ui.SplashActivity"
+            android:configChanges="orientation"
             android:noHistory="true"
             android:label="@string/app_name" 
             android:windowSoftInputMode="adjustResize">
@@ -23,6 +24,7 @@
         </activity>
         <activity
             android:name="martinezmencias.app.wordbag.ui.MainActivity"
+            android:configChanges="orientation"
             android:label="@string/app_name" 
             android:windowSoftInputMode="adjustResize">
         </activity>

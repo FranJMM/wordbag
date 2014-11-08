@@ -281,8 +281,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     	this.getWritableDatabase().update(TABLE_WORDS, values, KEY_ID+"=?", new String[]{String.valueOf(word.getID())});
     }
     
-    private ArrayList<Dictionary> readDictionaryList(String selectQuery){
-	    Cursor cursor = this.getWritableDatabase().rawQuery(selectQuery, null);
+    private ArrayList<Dictionary> readDictionaryList(String selectQuery) {
+    	SQLiteDatabase db = this.getReadableDatabase();
+	    Cursor cursor = db.rawQuery(selectQuery, null);
 	    ArrayList<Dictionary> dictionaryList = new ArrayList<Dictionary>();
 	    if (cursor.moveToFirst()) {
 	    	do {
@@ -292,11 +293,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		        dictionaryList.add(dictionary);
 		        } while (cursor.moveToNext());
 	    }
+	    cursor.close();
+	    db.close();
 	    return dictionaryList;
     }
     
-    private ArrayList<Word> readWordList(String selectQuery){
-    	Cursor cursor = this.getWritableDatabase().rawQuery(selectQuery, null);
+    private ArrayList<Word> readWordList(String selectQuery) {
+    	SQLiteDatabase db = this.getReadableDatabase();
+    	Cursor cursor = db.rawQuery(selectQuery, null);
     	ArrayList<Word> wordList = new ArrayList<Word>();
         if (cursor.moveToFirst()) {
             do {
@@ -310,11 +314,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 wordList.add(word);
             } while (cursor.moveToNext());
         }
+        cursor.close();
+        db.close();
         return wordList;
     }
     
-    private ArrayList<Translation> readTranslationList(String selectQuery){
-    	Cursor cursor = this.getWritableDatabase().rawQuery(selectQuery, null);
+    private ArrayList<Translation> readTranslationList(String selectQuery) {
+    	SQLiteDatabase db = this.getReadableDatabase();
+    	Cursor cursor = db.rawQuery(selectQuery, null);
 		ArrayList<Translation> translationList = new ArrayList<Translation>();
 	    if (cursor.moveToFirst()) {
 	    	do {
@@ -325,17 +332,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		        translationList.add(translation);
 		    } while (cursor.moveToNext());
 	    }
+	    cursor.close();
+	    db.close();
 	    return translationList;
     }
 
     private ArrayList<String> readStringList(String selectQuery){
-    	Cursor cursor = this.getWritableDatabase().rawQuery(selectQuery, null);
+    	SQLiteDatabase db = this.getReadableDatabase();
+    	Cursor cursor = db.rawQuery(selectQuery, null);
 		ArrayList<String> stringList = new ArrayList<String>();
 	    if (cursor.moveToFirst()) {
 	    	do {
 		        stringList.add(cursor.getString(0));
 		    } while (cursor.moveToNext());
 	    }
+	    cursor.close();
+	    db.close();
 	    return stringList;
     }
  
