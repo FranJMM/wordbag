@@ -37,7 +37,7 @@ public class SplashActivity extends Activity {
 			Util.setDefaultFont((TextView)findViewById(R.id.splashTitle), getBaseContext());
 			Util.setDefaultFont((TextView)findViewById(R.id.splashWelcome), getBaseContext());
 			Util.setDefaultFont((TextView)findViewById(R.id.splashClickHere), getBaseContext());
-			//Util.setSplashShown(this);
+			Util.setSplashShown(this);
 			findViewById(R.id.splashClickHere).setOnClickListener(new View.OnClickListener() {
 				
 				@Override

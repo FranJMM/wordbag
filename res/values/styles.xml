@@ -147,7 +147,9 @@
 	
 	<style name="ElementDivider" parent="AppTheme">
 	    <item name="android:layout_width">match_parent</item>
-	    <item name="android:layout_height">2px</item>
+	    <item name="android:layout_height">1px</item>
+	    <item name="android:layout_marginLeft">20dp</item>
+	    <item name="android:layout_marginRight">20dp</item>
 	</style>
 
 	<style name="Message" parent="PaddedElement">
@@ -603,6 +605,7 @@
 	   	<item name="android:textSize">14sp</item>
 	   	<item name="android:typeface">serif</item>
 	   	<item name="android:textColor">@color/black</item>
+	   	<item name="android:ellipsize">end</item>
 	</style>
 	
 	<style name="TestDivider" parent="AppTheme">
