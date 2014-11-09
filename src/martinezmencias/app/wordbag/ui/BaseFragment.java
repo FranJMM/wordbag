@@ -1,6 +1,6 @@
 package martinezmencias.app.wordbag.ui;
 
-import martinezmencias.app.wordbag.R;
+import martinezmencias.app.wordbag2.R;
 import martinezmencias.app.wordbag.database.handler.DatabaseHandler;
 import martinezmencias.app.wordbag.util.Util;
 import android.content.Context;

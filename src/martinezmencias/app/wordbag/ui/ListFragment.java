@@ -3,8 +3,7 @@ package martinezmencias.app.wordbag.ui;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import martinezmencias.app.wordbag.R;
-import martinezmencias.app.wordbag.R.layout;
+import martinezmencias.app.wordbag2.R;
 import martinezmencias.app.wordbag.database.data.Dictionary;
 import martinezmencias.app.wordbag.database.data.Translation;
 import martinezmencias.app.wordbag.database.data.Word;

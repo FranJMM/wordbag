@@ -2,7 +2,7 @@ package martinezmencias.app.wordbag.ui;
 
 import org.w3c.dom.Text;
 
-import martinezmencias.app.wordbag.R;
+import martinezmencias.app.wordbag2.R;
 import martinezmencias.app.wordbag.database.handler.DatabaseHandler;
 import martinezmencias.app.wordbag.util.Util;
 import android.app.Activity;

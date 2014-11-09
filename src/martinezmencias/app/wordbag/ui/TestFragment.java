@@ -2,8 +2,7 @@ package martinezmencias.app.wordbag.ui;
 
 import java.util.ArrayList;
 
-import martinezmencias.app.wordbag.R;
-import martinezmencias.app.wordbag.R.layout;
+import martinezmencias.app.wordbag2.R;
 import martinezmencias.app.wordbag.database.data.Translation;
 import martinezmencias.app.wordbag.database.data.Word;
 import martinezmencias.app.wordbag.database.handler.DatabaseHandler;
