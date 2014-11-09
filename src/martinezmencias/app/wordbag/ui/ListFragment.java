@@ -401,12 +401,12 @@ public class ListFragment extends BaseFragment {
 			Util.setDefaultFont(testCount, context);
 
 			if(word.isActive()) {
-				view.setBackgroundResource(R.drawable.row_background);
 				find((ViewGroup)view,R.id.word).setBackgroundResource(R.drawable.row_background);
+				find((ViewGroup)view,R.id.wordEdition).setBackgroundColor(getResources().getColor(R.color.white));
 				find((ViewGroup)view,R.id.rowDivider).setBackgroundColor(getResources().getColor(R.color.gray_2));
 			} else {
-				view.setBackgroundResource(R.drawable.row_background_marked);
 				find((ViewGroup)view,R.id.word).setBackgroundResource(R.drawable.row_background_marked);
+				find((ViewGroup)view,R.id.wordEdition).setBackgroundColor(getResources().getColor(R.color.gray_2));
 				find((ViewGroup)view,R.id.rowDivider).setBackgroundColor(getResources().getColor(R.color.white));
 			}
 
