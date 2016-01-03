@@ -1,7 +1,0 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:wordbag="http://schemas.android.com/apk/res-auto" >
-    <item android:id="@+id/action_discard"
-          android:icon="@drawable/discard"
-          android:title="@string/action_remove"
-          wordbag:showAsAction="ifRoom"  />
-</menu>

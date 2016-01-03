@@ -1,9 +1,0 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/listHeaderAlphabetCharacterLayout"
-    style="@style/ListHeaderAlphabetCharacterLayout">
-    <Button
-        xmlns:android="http://schemas.android.com/apk/res/android"
-    	android:id="@+id/listHeaderAlphabetCharacter"   
-    	style="@style/ListHeaderAlphabetCharacter"/>
-</LinearLayout>
