@@ -1,0 +1,12 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headerDictionary"
+    style="@style/HeaderDictionary">
+    <TextView
+        android:id="@+id/headerDictionaryText"
+        style="@style/HeaderDictionaryText" />
+   	<Button 
+   	    android:id="@+id/headerDictionaryButton"
+        android:text="More"
+       	android:onClick="toggleDictionariesList"
+       	style="@style/HeaderDictionaryButton"/>
+</LinearLayout>

@@ -1,0 +1,7 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	style="@style/Fragment">
+    <ListView
+        android:id="@+id/list"
+		style="@style/List"/>
+</LinearLayout>

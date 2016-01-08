@@ -1,0 +1,7 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/RowTranslation">
+    <TextView 
+        android:id="@+id/text"
+     	style="@style/ElementRowText"/>
+</LinearLayout>
